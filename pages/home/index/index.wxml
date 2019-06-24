@@ -17,45 +17,8 @@
         </swiper>
       </view>
       <view class="c_main">
-        <view class="main_ul">
-          <view class="tops1 flex " bindtap="topageList">
-            <view class="left_b">
-              <view>新书上架</view>
-            </view>
-            <image src="../../images/AcceptOrdersImg/back_img1.png" alt="" class="back_img"></image>
-          </view>
-          <view class="tops1 flex " bindtap="topageList">
-            <view class="left_b">
-              <view>独家特供</view>
-            </view>
-            <image src="../../images/AcceptOrdersImg/back_img2.png" alt="" class="back_img"></image>
-          </view>
-          <view class="tops1 flex " bindtap="topageList">
-            <view class="left_b">
-              <view>独家特供</view>
-            </view>
-            <image src="../../images/AcceptOrdersImg/back_img3.png" alt="" class="back_img"></image>
-          </view>
-          <view class="tops1 flex " bindtap="topageList">
-            <view class="left_b">
-              <view>独家特供</view>
-            </view>
-            <image src="../../images/AcceptOrdersImg/back_img4.png" alt="" class="back_img"></image>
-          </view>
-          <view class="tops1 flex " bindtap="topageList">
-            <view class="left_b">
-              <view>独家特供</view>
-            </view>
-            <image src="../../images/AcceptOrdersImg/back_img5.png" alt="" class="back_img"></image>
-          </view>
-          <view class="tops1 flex " bindtap="topageList">
-            <view class="left_b">
-              <view>独家特供</view>
-            </view>
-            <image src="../../images/AcceptOrdersImg/back_img7.png" alt="" class="back_img"></image>
-          </view>
-        </view>
-
+        <view class="main_ul"> 
+        </view> 
       </view>
     </view>
   </view>
