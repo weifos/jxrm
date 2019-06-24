@@ -1,0 +1,55 @@
+<!--miniprogram/pages/search/search.wxml-->
+<view class="container">
+  <view class="header">
+    <view style="width: 0%;"> </view>
+    <view class="flex searchs_div">
+      <image src="../../images/AcceptOrdersImg/search_h.png"></image>
+      <input type="text" bindinput='inputedit' data-name="skeyword" placeholder="输入关键词进行搜索" maxlength="50" />
+    </view>
+    <view class="btn_s" bindtap='topageResult'>
+      <text>搜索</text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="content_div">
+      <view class="search_c">
+
+        <view class="search_div" style="display:none;">
+          <view class="search_div_tit">热门搜索</view>
+          <view class="search_ul flex">
+            <view>公司的</view>
+          </view>
+        </view>
+        <view class="search_history" style="display:none;">
+          <view class="history_tit flex">
+            <text>历史搜索</text>
+            <text>清空</text>
+          </view>
+          <view class="history_ul">
+            <view class="flex">
+              <view>是是的</view>
+              <image src="../../images/AcceptOrdersImg/quxiao_@2x.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 分类 -->
+       <view class="search_div_tit">分类搜索</view>
+      <view class="type_list flex">
+        <view class="type_li" bindtap='topageList'>新书上架</view>
+        <view class="type_li" bindtap='topageList'>独家特供</view>
+        <view class="type_li" bindtap='topageList'>独家特供</view>
+        <view class="type_li" bindtap='topageList'>独家特供</view>
+        <view class="type_li" bindtap='topageList'>独家特供</view>
+        <view class="type_li" bindtap='topageList'>独家特供</view>
+
+
+      </view>
+
+
+
+
+    </view>
+  </view>
+</view>

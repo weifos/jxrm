@@ -1,0 +1,62 @@
+<!--miniprogram/pages/home/home.wxml-->
+<view class="container">
+  <view class="content">
+    <view class="content_div">
+      <view class="flex search_p" bindtap='topageSearch'>
+        <image src="../../images/AcceptOrdersImg/search_ss.png"></image>
+        <text>书名</text>
+      </view>
+      <view class="swipe_v">
+        <!--轮播-->
+        <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{imgUrls}}" wx:key="key">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" style="height:366rpx;width:100%;" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class="c_main">
+        <view class="main_ul">
+          <view class="tops1 flex " bindtap="topageList">
+            <view class="left_b">
+              <view>新书上架</view>
+            </view>
+            <image src="../../images/AcceptOrdersImg/back_img1.png" alt="" class="back_img"></image>
+          </view>
+          <view class="tops1 flex " bindtap="topageList">
+            <view class="left_b">
+              <view>独家特供</view>
+            </view>
+            <image src="../../images/AcceptOrdersImg/back_img2.png" alt="" class="back_img"></image>
+          </view>
+          <view class="tops1 flex " bindtap="topageList">
+            <view class="left_b">
+              <view>独家特供</view>
+            </view>
+            <image src="../../images/AcceptOrdersImg/back_img3.png" alt="" class="back_img"></image>
+          </view>
+          <view class="tops1 flex " bindtap="topageList">
+            <view class="left_b">
+              <view>独家特供</view>
+            </view>
+            <image src="../../images/AcceptOrdersImg/back_img4.png" alt="" class="back_img"></image>
+          </view>
+          <view class="tops1 flex " bindtap="topageList">
+            <view class="left_b">
+              <view>独家特供</view>
+            </view>
+            <image src="../../images/AcceptOrdersImg/back_img5.png" alt="" class="back_img"></image>
+          </view>
+          <view class="tops1 flex " bindtap="topageList">
+            <view class="left_b">
+              <view>独家特供</view>
+            </view>
+            <image src="../../images/AcceptOrdersImg/back_img7.png" alt="" class="back_img"></image>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

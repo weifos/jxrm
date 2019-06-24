@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/passport/login/login",
+    "pages/home/productDetail/productDetail",
+    "pages/user/index/index",
+    "pages/resultList/resultList",
+    "pages/search/search",
+    "pages/passport/authorize/authorize"
+  ],
+  "window": {
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4786e4",
+    "navigationBarTitleText": "书房扫码借",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,312 @@
+<!--miniprogram/pages/bowerOrder/bowerOrder.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="swiper-tab">
+      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部</view>
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">借阅中</view>
+      <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">已逾期</view>
+      <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">已完成</view>
+      <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">罚金单</view>
+    </view>
+  </view>
+  <view class="content">
+    <scroll-view class="content_div" scroll-y="true">
+
+      <view class="orderlist_ul" style="background: #f5f5f5;" wx:if="{{currentTab!=4}}">
+        <view class="">
+          <view class="tlt flex">
+            <view style="font-family: -webkit-body;display: flex;align-items: center;">
+              <image src="../../images/AcceptOrdersImg/isbn_icon.png" alt="" style="width: 40rpx;height: 40rpx;"></image>
+              <text style="margin-left: 10rpx;font-size:28rpx;">15451511215552125</text>
+            </view>
+            <!--状态有：借阅中 name_status，已逾期 name_status2，已完成 name_status3-->
+            <view class="name_status">借阅中</view>
+            <!--<view class="name_status2">已逾期</view>
+            <view class="name_status3">已完成</view>-->
+
+          </view>
+          <view class="flex c_li">
+            <view class="img_box">
+              <image src="../../images/AcceptOrdersImg/6364783313718854453243946.jpg" style="height: 160rpx;width: 150rpx;" alt="图片"></image>
+
+            </view>
+            <view class="orderlist_ul_martop" style="width:73%;margin-left: 15rpx;font-size: 24rpx;">
+              <view class="name_div flex">
+                <view style="" class="name">时间的话官方设定集奋笔疾书</view>
+              </view>
+
+              <view class="col flex">
+                <image src="../../images/AcceptOrdersImg/time_icon.png" style="width: 36rpx;height:36rpx;"></image>
+                <text style="margin-left: 10rpx;">2019年12月12日-2019年10月13日</text>
+              </view>
+
+              <view class="col flex" style="word-wrap: break-word;">
+                <image src="../../images/AcceptOrdersImg/qcode_icon.png" style="width: 36rpx;height: 36rpx;"></image>
+                <view style="color: #333;margin-left: 8rpx;">415641515155645651522222</view>
+              </view>
+
+              <!--已完成状态显示这个时间-->
+              <view class="col flex" style="word-wrap: break-word;">
+                <image src="../../images/AcceptOrdersImg/icon1.png" alt="" style="width: 40rpx;height: 40rpx;margin-left:-4rpx;"></image>
+                <text style="margin-left:6rpx;color: #333;">2019年10月10日</text>
+              </view>
+            </view>
+          </view>
+          <view class="btn_div flex">
+            <view bindtap="showqrcode">还书</view>
+          </view>
+        </view>
+        <view class="">
+          <view class="tlt flex">
+            <view style="font-family: -webkit-body;display: flex;align-items: center;">
+              <image src="../../images/AcceptOrdersImg/isbn_icon.png" alt="" style="width: 40rpx;height: 40rpx;"></image>
+              <text style="margin-left: 10rpx;font-size:28rpx;">15451511215552125</text>
+            </view>
+            <!--状态有：借阅中 name_status，已逾期 name_status2，已完成 name_status3-->
+            <!-- <view class="name_status">借阅中</view> -->
+            <view class="name_status2">已逾期</view>
+            <!-- <view class="name_status3">已完成</view> -->
+
+          </view>
+          <view class="flex c_li">
+            <view class="img_box">
+              <image src="../../images/AcceptOrdersImg/6364783313718854453243946.jpg" style="height: 160rpx;width: 150rpx;" alt="图片"></image>
+
+            </view>
+            <view class="orderlist_ul_martop" style="width:73%;margin-left: 15rpx;font-size: 24rpx;">
+              <view class="name_div flex">
+                <view style="" class="name">时间的话官方设定集奋笔疾书</view>
+              </view>
+
+              <view class="col flex">
+                <image src="../../images/AcceptOrdersImg/time_icon.png" style="width: 36rpx;height: 36rpx;"></image>
+                <text style="margin-left: 10rpx;">2019年12月12日-2019年10月13日</text>
+              </view>
+
+              <view class="col flex" style="word-wrap: break-word;">
+                <image src="../../images/AcceptOrdersImg/qcode_icon.png" style="width: 36rpx;height: 36rpx;"></image>
+                <view style="color: #333;margin-left: 10rpx;">415641515155645651522222</view>
+              </view>
+
+              <!--已完成状态显示这个时间-->
+              <view class="col flex" style="word-wrap: break-word;">
+                <image src="../../images/AcceptOrdersImg/icon1.png" alt="" style="width: 40rpx;height: 40rpx;margin-left:-4rpx;"></image>
+                <text style="margin-left:6rpx;color: #333;">2019年10月10日</text>
+              </view>
+            </view>
+          </view>
+          <view class="btn_div flex">
+            <view>还书</view>
+          </view>
+        </view>
+        <view class="">
+          <view class="tlt flex">
+            <view style="font-family: -webkit-body;display: flex;align-items: center;">
+              <image src="../../images/AcceptOrdersImg/isbn_icon.png" alt="" style="width: 40rpx;height: 40rpx;"></image>
+              <text style="margin-left: 10rpx;font-size:28rpx;">15451511215552125</text>
+            </view>
+            <!-- 状态有：借阅中 name_status，已逾期 name_status2，已完成 name_status3 -->
+            <!-- <view class="name_status">借阅中</view> -->
+            <!-- <view class="name_status2">已逾期</view>  -->
+            <view class="name_status3">已完成</view>
+
+          </view>
+          <view class="flex c_li">
+            <view class="img_box">
+              <image src="../../images/AcceptOrdersImg/6364783313718854453243946.jpg" style="height: 160rpx;width: 150rpx;" alt="图片"></image>
+
+            </view>
+            <view class="orderlist_ul_martop" style="width:73%;margin-left: 15rpx;font-size: 24rpx;">
+              <view class="name_div flex">
+                <view style="" class="name">时间的话官方设定集奋笔疾书</view>
+              </view>
+
+              <view class="col flex">
+                <image src="../../images/AcceptOrdersImg/time_icon.png" style="width: 40rpx;height: 40rpx;"></image>
+                <text style="margin-left: 10rpx;">2019年12月12日-2019年10月13日</text>
+              </view>
+
+              <view class="col flex" style="word-wrap: break-word;">
+                <image src="../../images/AcceptOrdersImg/qcode_icon.png" style="width: 40rpx;height: 40rpx;"></image>
+                <view style="color: #333;margin-left: 10rpx;">415641515155645651522222</view>
+              </view>
+
+              <!--已完成状态显示这个时间-->
+              <view class="col flex" style="word-wrap: break-word;">
+                <image src="../../images/AcceptOrdersImg/icon1.png" alt="" style="width: 44rpx;height: 44rpx;"></image>
+                <text style="margin-left:6rpx;color: #333;">2019年10月10日</text>
+              </view>
+            </view>
+          </view>
+          <view class="btn_div flex">
+            <view>还书</view>
+          </view>
+        </view>
+        <view class="">
+          <view class="tlt flex">
+            <view style="font-family: -webkit-body;display: flex;align-items: center;">
+              <image src="../../images/AcceptOrdersImg/isbn_icon.png" alt="" style="width: 40rpx;height: 40rpx;"></image>
+              <text style="margin-left: 10rpx;font-size:28rpx;">15451511215552125</text>
+            </view>
+            <!-- 状态有：借阅中 name_status，已逾期 name_status2，已完成 name_status3 -->
+            <!-- <view class="name_status">借阅中</view> -->
+            <!-- <view class="name_status2">已逾期</view>  -->
+            <view class="name_status3">已完成</view>
+
+          </view>
+          <view class="flex c_li">
+            <view class="img_box">
+              <image src="../../images/AcceptOrdersImg/6364783313718854453243946.jpg" style="height: 160rpx;width: 150rpx;" alt="图片"></image>
+
+            </view>
+            <view class="orderlist_ul_martop" style="width:73%;margin-left: 15rpx;font-size: 24rpx;">
+              <view class="name_div flex">
+                <view style="" class="name">时间的话官方设定集奋笔疾书</view>
+              </view>
+
+              <view class="col flex">
+                <image src="../../images/AcceptOrdersImg/time_icon.png" style="width: 40rpx;height: 40rpx;"></image>
+                <text style="margin-left: 10rpx;">2019年12月12日-2019年10月13日</text>
+              </view>
+
+              <view class="col flex" style="word-wrap: break-word;">
+                <image src="../../images/AcceptOrdersImg/qcode_icon.png" style="width: 40rpx;height: 40rpx;"></image>
+                <view style="color: #333;margin-left: 10rpx;">415641515155645651522222</view>
+              </view>
+
+              <!--已完成状态显示这个时间-->
+              <view class="col flex" style="word-wrap: break-word;">
+                <image src="../../images/AcceptOrdersImg/icon1.png" alt="" style="width: 44rpx;height: 44rpx;"></image>
+                <text style="margin-left:6rpx;color: #333;">2019年10月10日</text>
+              </view>
+            </view>
+          </view>
+          <view class="btn_div flex">
+            <view>还书</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 罚金单 -->
+      <view class="orderlist2" wx:if="{{currentTab==4}}">
+        <view class="orderlist_box">
+          <view class="click_box">
+            <view class="orderlist-title flex">
+              <view>单号：
+                <text style="color: rgb(255, 74, 125);">15151521515</text>
+              </view>
+              <text class="tx-usertext">已支付</text>
+            </view>
+            <view>
+              <view class="orderlist_ul2">
+                <view class="flex">
+                  <view class="img_box">
+                    <image src="../../images/AcceptOrdersImg/6364783313718854453243946.jpg" style="height: 160rpx;width: 150rpx;" alt="图片"></image>
+                  </view>
+                  <view class="orderlist_ul_martop" style="width:72%;margin-left: 10rpx;font-size: 24rpx;">
+                    <view class="name">聚划算的手机号不是看见你是空间</view>
+                    <view class="colco_a flex" style="margin-top: 10rpx;">
+                      <image src="../../images/AcceptOrdersImg/isbn_icon.png" alt="" style="width:38rpx;height: 38rpx;"></image>
+                      <text style="margin-left: 0.1rem;">515615151626</text>
+                    </view>
+                    <view class="colco_a flex" style="margin-top: 10rpx;">
+                      <image src="../../images/AcceptOrdersImg/icon1.png" alt="" style="width: 40rpx;height: 40rpx;margin-left:-2rpx;"></image>
+                      <text style="margin-left: 6rpx;">2019年2月5日</text>
+                    </view>
+                    <view class="colco_a flex" style="margin-top: 10rpx;">
+                      <image src="../../images/AcceptOrdersImg/qcode_icon.png" alt="" style="width: 36rpx;height: 36rpx;"></image>
+                      <view style="color:#333;margin-left: 8rpx;">21451151541512515155515515</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="orderlistcon">
+            <view>
+              <view style="padding: 8rpx 0;justify-content: space-between;align-items: center;font-size: 28rpx;" class="flex">
+                <view class="didmoney">罚金:
+                  <text class="tx-usertext">￥12.00</text>
+                </view>
+                <view>
+                  逾期
+                  <text style="color:rgb(255, 74, 125);">1 </text> 天
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="orderlist_box">
+          <view class="click_box">
+            <view class="orderlist-title flex">
+              <view>单号：
+                <text style="color: rgb(255, 74, 125);">15151521515</text>
+              </view>
+              <text class="tx-usertext">已支付</text>
+            </view>
+            <view>
+              <view class="orderlist_ul2">
+                <view class="flex">
+                  <view class="img_box">
+                    <image src="../../images/AcceptOrdersImg/6364783313718854453243946.jpg" style="height: 160rpx;width: 150rpx;" alt="图片"></image>
+                  </view>
+                  <view class="orderlist_ul_martop" style="width:72%;margin-left: 10rpx;font-size: 24rpx;">
+                    <view class="name">聚划算的手机号不是看见你是空间</view>
+                    <view class="colco_a flex" style="margin-top: 10rpx;">
+                      <image src="../../images/AcceptOrdersImg/isbn_icon.png" alt="" style="width:36rpx;height: 36rpx;"></image>
+                      <text style="margin-left: 0.1rem;">515615151626</text>
+                    </view>
+                    <view class="colco_a flex" style="margin-top: 10rpx;">
+                      <image src="../../images/AcceptOrdersImg/icon1.png" alt="" style="width: 40rpx;height: 40rpx;margin-left:-4rpx;"></image>
+                      <text style="margin-left: 6rpx;">2019年2月5日</text>
+                    </view>
+                    <view class="colco_a flex" style="margin-top: 10rpx;">
+                      <image src="../../images/AcceptOrdersImg/qcode_icon.png" alt="" style="width: 36rpx;height: 36rpx;"></image>
+
+                      <view style="color:#333;margin-left: 8rpx;">21451151541512515155515515</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="orderlistcon">
+            <view>
+              <view style="padding: 8rpx 0;justify-content: space-between;align-items: center;font-size: 28rpx;" class="flex">
+                <view class="didmoney">罚金:
+                  <text class="tx-usertext">￥12.00</text>
+                </view>
+                <view>
+                  逾期
+                  <text style="color:rgb(255, 74, 125);">1 </text> 天
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+
+      <!--无订单的时候显示-->
+      <view class="no_content" style="display: none;">
+        <view class="no_orders">
+          <image src="../../images/AcceptOrdersImg/no_order.png" alt=""></image>
+        </view>
+        <view class="text_toast">当前暂无订单</view>
+      </view>
+    </scroll-view>
+    <!--还书二维码弹出层-->
+    <view class="qcode_mask {{show_payed?'qcode_mask_show':''}}">
+      <view class="qcode_box">
+        <image src="../../images/AcceptOrdersImg/close.png" alt="" class="close" bindtap="closediv"></image>
+        <view class="qrcodesp_box" bindtap='topagePay_yu'>
+          <!-- 存放二维码 ,后台反图片流-->
+          <image src="" style="width:100%;height:100%;"></image>
+        </view>
+        <view class="toast_f">请前往收银台还书</view>
+      </view>
+    </view>
+
+  </view>
+</view>

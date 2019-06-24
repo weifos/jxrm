@@ -1,0 +1,46 @@
+/* miniprogram/pages/authorize/authorize.wxss */
+.content{
+  top: 0;
+  bottom: 0;
+}
+.content_div{
+  height: 100%;
+  padding:0 50rpx;
+
+}
+.authorize_image{
+  text-align: center;
+  margin-top: 140rpx;
+  padding-bottom:60rpx;
+border-bottom:1px solid #d8d8d8;
+
+}
+.authorize_image>image{
+ width: 120rpx;
+ height: 120rpx;
+}
+.toast_auth{
+  width: 100%;
+  margin-top: 50rpx;
+}
+.toast_auth .author{
+  color:#363636;
+font-size:30rpx;
+font-weight:600;
+
+
+}
+.toast_auth .texts_auth{
+  color: #999;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+.btn_v{
+  background: #1aaf2e;
+  font-size: 28rpx;
+  /* padding: 18rpx 0; */
+  border-radius: 15rpx;
+  color: #fff;
+  text-align: center;
+  margin-top: 50rpx;
+}

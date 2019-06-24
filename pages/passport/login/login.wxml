@@ -1,0 +1,47 @@
+<!--miniprogram/pages/login/login.wxml-->
+<view class="container">
+  <view class="content">
+    <view class="content_div">
+      <view class="g_user_login">
+        <view class="store_logo flex">
+          <image src="../../../images/AcceptOrdersImg/logo_zcy.png" alt=""></image>
+        </view>
+        <view class="mains_input">
+          <view class="inp_content">
+            <view>
+              <view class="phone_div">
+                <input type="number" bindinput='inputedit' data-name="login.mobile" value="{{login.mobile}}" placeholder="请输入手机号" />
+              </view>
+            </view>
+            <view>
+              <view class="yz_input">
+                <input type="number" bindinput='inputedit' data-name="login.yzm" value="{{login.yzm}}" maxlength='4' placeholder="请输入验证码" />
+                <view bindtap='api_110'>{{login.sendObj.text}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="btn_login">
+          <view>登录</view>
+        </view>
+      </view>
+
+      <!-- 公众号关联组件，基础库版本需要2.3.0以上，开放平台上需打开关联设置 ，打开场景查阅文档-->
+      <view style="width:100%;position:relative;height:100rpx;border:1px solid #f1f1f1;bottom:90px;display:none;">
+        <official-account></official-account>
+      </view>
+      
+      <view class="copy">&copy;2019 畅云科技 版权所有</view>
+    </view>
+  </view>
+  <!-- 快速登陆弹框 -->  
+  <view class="toast_div {{showFlag ? 'show_toast':''}}">
+      <view class="toast_c">
+        <view class="tlt_shuf">书房扫码借</view>
+        <view class="toast_shuf">手机扫码快速借阅，免排队</view>
+        <!-- <view class="rules">我已同意借阅规则</view> -->
+          <button class="fast_login" open-type="getPhoneNumber" bindgetphonenumber="getMobile" >快速登陆</button>
+      </view>
+  </view>
+
+</view>

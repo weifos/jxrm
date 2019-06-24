@@ -1,0 +1,78 @@
+/* miniprogram/pages/resultList/resultList.wxss */
+/* miniprogram/pages/list/list.wxss */
+.content{
+  top: 0;
+  bottom: 0;
+}
+.search_ul > view {
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+.search_ul > view .li-left{
+  width:172rpx;
+height:236rpx;
+}
+.search_ul > view .li-left>image{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+ .search_ul > view > .li-right {
+  width: 70%;
+  height: 100%;
+  display: block;
+  margin-left: 20rpx;
+}
+
+ .search_ul > view .div_book_con {
+  margin-top:15rpx;
+  align-items: center;
+	justify-content: space-between;
+}
+
+ .search_ul > view .p_book_name {
+   color: #444;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 600;
+ 
+}
+.authors {
+		font-size: 24rpx;
+		color: #999;
+		margin-top: 15rpx;
+		text-indent: 8rpx;
+		font-weight: lighter;
+	}
+	
+	.detail {
+		color: #898989;
+		text-indent: 8rpx;
+		margin-top: 15rpx;
+		font-size: 24rpx;
+		line-height: 38rpx;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+.p_book_moneytext  > text {
+  color: #ff4a7d;
+  font-size: 32rpx;
+  font-weight: inherit;
+}
+
+.p_book_inventory {
+  color: #ff4a7d;
+}
+
+

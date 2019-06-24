@@ -1,0 +1,233 @@
+/* pages/productDetail/mproductDetaily.wxss */
+
+.content {
+  top: 0;
+}
+
+.content_div {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.content_div, .detail_main {
+  height: 100%;
+}
+
+.top0.top_show, body.top_show .top0 {
+  animation: top_show_animation 0.2s forwards;
+  -webkit-animation: top_show_animation 0.2s forwards;
+}
+
+.good_introduce_con {
+  background-color: #fff;
+  padding: 20rpx;
+}
+
+.left_introduce_con {
+  width: 30%;
+}
+
+.left_introduce_con  .left_introduce {
+  height: 242rpx;
+}
+
+.left_introduce>image {
+  width: 100%;
+  height: 100%;
+}
+
+.good_introduce_properties {
+  position: relative;
+  font-size: 24rpx;
+  background: #fff;
+}
+
+.mt_10 {
+  margin-top: 20rpx;
+}
+
+.good_information_title {
+  background-color: #fff;
+  height: 80rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.jiawei_tlt {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.jiawei_box {
+  padding: 8rpx 0;
+}
+
+.jiawei_box>view {
+  color: #999;
+  font-size: 30rpx;
+  padding: 10rpx 0;
+}
+
+.good_introduce {
+  width: 69%;
+  padding-left: 20rpx;
+  position: relative;
+}
+
+.good_introduce .author {
+  margin-top: 15rpx;
+  color: #300f44;
+  font-size: 24rpx;
+  font-weight: lighter;
+}
+
+.good_introduce .good_title {
+  color: #333;
+  font-size: 30rpx;
+  line-height: 38rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-weight: 600;
+}
+
+.price {
+  color: #ff4a7d;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+}
+
+#good_price {
+  font-size: 45rpx;
+}
+
+#discount {
+  font-size: 40rpx;
+  color: #969696;
+}
+
+.good_introduce .brokerage {
+  font-size: 24rpx;
+  line-height: 10rpx;
+  margin-top: 20rpx;
+  color: #666;
+}
+
+#slider {
+  height: 420rpx;
+  background: #fff;
+}
+
+#slider swiper {
+  height: 420rpx;
+}
+
+#slider image {
+  height: 420rpx;
+}
+
+label {
+  cursor: default;
+}
+
+.piclist view {
+  background-color: #fff;
+}
+
+.foot {
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  background: #72a8e0;
+  color: #fff;
+  font-size: 34rpx;
+  text-align: center;
+  letter-spacing: 2rpx;
+}
+
+.detail {
+  background: #fff;
+}
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #f2f2f2;
+  text-align: center;
+  line-height: 55rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 49.4%;
+  color: #777;
+  padding: 10rpx 0rpx;
+  font-weight: 600;
+}
+
+.swiper-tab-list:first-child>view {
+  border-right: 2rpx solid #f1f1f1;
+}
+
+.on {
+  color: #ff4a7d;
+  border-bottom: 5rpx solid #ff4a7d;
+  padding-bottom: 4rpx;
+}
+
+.swiper-box {
+  display: block;
+  height: 500rpx;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.texts {
+  padding: 20rpx;
+}
+
+.texts .texts {
+  text-align: left;
+  padding: 20rpx;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.texts .tex_title {
+  font-size: 34rpx;
+  color: #666;
+  text-align: left;
+}
+
+.texts .text {
+  color: #999;
+  font-size: 30rpx;
+  text-align: left;
+  margin-top: 10rpx;
+  text-indent: 30rpx;
+  line-height: 1.4;
+}
+
+.uls {
+  width: 100%;
+}
+
+.uls>li {
+  width: 100%;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #f1f1f1;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.uls>li .left_t {
+  width: 20%;
+}
+
+.uls>li .right_t {
+  width: 80%;
+}
