@@ -1,0 +1,10 @@
+<!--components/navBar/navBar.wxml-->
+<view class="nav">
+  <navigator url="/pages/index/index" >
+  <text class="icon-index"><image src="../../images/AcceptOrdersImg/address.png" alt=""></image></text>
+  <text>首页</text>
+  </navigator>
+  <navigator url="/pages/search/search" >分类</navigator>
+  <navigator url="/pages/user/index/index" >我的</navigator>
+</view>
+

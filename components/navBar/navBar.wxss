@@ -1,0 +1,10 @@
+/* components/navBar/navBar.wxss */
+.nav{
+  position: fixed;
+  left: 0;
+  bottom:0;
+  background: #f1f1f1;
+  width: 100%;
+  display: flex;
+  text-align: center;
+}

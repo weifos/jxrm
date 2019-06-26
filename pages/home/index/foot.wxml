@@ -2,6 +2,10 @@
 <view class="container">
   <view class="content">
     <view class="content_div">
+      <view class="flex search_p" bindtap='topageSearch'>
+        <image src="../../images/AcceptOrdersImg/search_ss.png"></image>
+        <text>书名</text>
+      </view>
       <view class="swipe_v">
         <!--轮播-->
         <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -20,6 +24,6 @@
     </view>
   </view>
   <!-- 导航 s -->
-  <navBar></navBar>
+  <include src="/components/navBar/navBar.wxml" />
   <!-- 导航 e -->
 </view>
