@@ -1,0 +1,50 @@
+<!--pages/cateList/cateList.wxml-->
+<view class="container page-cateList">
+  <view class="content">
+    <view class="content_div">
+      <view class="swipe_v">
+        <!--轮播-->
+        <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{imgUrls}}" wx:key="key">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" style="height:366rpx;width:100%;" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <!-- c_main s -->
+      <view class="c_main">
+        <!-- cate_classify s -->
+        <view class="cate-classify">
+          <view class="cate-classify__wrap">
+          <view class="classify-list">
+            <view class="classify-item" wx:for="{{cateList}}" wx:for-item="item" wx:key="key">
+              <view class="classify-main__name">{{item.classifysName}}</view>
+              <view class="classify-main__list">
+                  <view class="classify-main__list-item" wx:for="{{item.cateClassify}}" wx:for-item="sitem" wx:key="key">
+                    {{sitem}}
+                  </view>
+              </view>
+            </view>
+            </view>
+          </view>
+        </view>
+        <!-- cate_classify e -->
+        <view class="cate-list"> <view class="cate-list__wrap">
+          <!-- cat-item s -->
+          <view class="cate-list-content">
+            <view class="cate-list-merchant__item" wx:for="{{cateContent}}" wx:for-item="sitem" wx:key="key">
+            <view class="cate-list-merchant__image"><image src="{{sitem.img}}" alt="{{sitem.name}}" mode="scaleToFill"></image></view>
+             <text class="cate-list-merchant__name">{{sitem.name}}</text>
+            </view>
+          </view>
+          <!-- cat-item e -->
+        </view> </view>
+      </view>
+      <!-- c_main e -->
+    </view>
+  </view>
+  <!-- 导航 s -->
+  <navBar></navBar>
+  <!-- 导航 e -->
+</view>

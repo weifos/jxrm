@@ -8,7 +8,7 @@
   box-sizing: border-box;
   height: 100%;
   overflow: hidden; */
-  padding-bottom: 70rpx;
+  padding-bottom: 120rpx;
 }
 
 .header {
@@ -27,7 +27,7 @@
   left: 0;
   top: 80rpx;
   bottom: 100rpx;*/
-   background: #f4f4f4;  
+   background: #fff;  
 }
 
 .content .content_div {

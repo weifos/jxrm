@@ -14,6 +14,119 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1000,
+    cat: [
+      {
+        cname: '山货',
+        desc: '山货海货，即时享受',
+        banner: '../../../images/index/bn2.jpg',
+        merchant: [
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1商家1商家1商家1商家1商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+        ]
+      },
+      {
+        cname: '水产',
+        desc: '新鲜海货，即时享受',
+        banner: '../../../images/index/bn1.jpg',
+        merchant: [
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1商家1商家1商家1商家1商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+        ]
+      },
+      {
+        cname: '生鲜',
+        desc: '新鲜海货，即时享受',
+        banner: '../../../images/index/bn1.jpg',
+        merchant: [
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1商家1商家1商家1商家1商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+          {
+            name: '商家1',
+            img: '../../../images/index/i1.jpg',
+            id: 1
+          },
+        ]
+      },
+    ]
   },
 
   /**
@@ -63,6 +176,13 @@ Page({
    */
   onReachBottom: function () {
 
+  },
+
+  bindMerchantJump: function (event){
+    let id = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../../../pages/shop/shop?id='+id,
+    })
   },
 
   /**

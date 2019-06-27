@@ -1,5 +1,5 @@
 <!--miniprogram/pages/home/home.wxml-->
-<view class="container">
+<view class="container page-home">
   <view class="content">
     <view class="content_div">
       <view class="swipe_v">
@@ -12,11 +12,32 @@
           </block>
         </swiper>
       </view>
+      <!-- c_main s -->
       <view class="c_main">
-        <view class="main_ul"> 
-        
+        <view class="cat_ul"> 
+          <!-- cat-item s -->
+          <view class="cat-item" wx:for="{{cat}}" wx:for-item="item" wx:key="key">
+            <view class="cat-title">
+              <view class="cat-name">{{item.cname}}</view>
+              <view class="cat-desc">{{item.desc}}</view>
+            </view>
+            <view class="cat-content">
+              <view class="cat-image">
+                <image src="{{item.banner}}" alt="{{item.name}}"></image>
+                <view class="i-arrow"><image src="../../../images/index/arrow.png" /></view>
+              </view>
+              <view class="cat-merchant">
+                  <view class="cat-merchant__item" data-id="{{sitem.id}}" bindtap="bindMerchantJump"  wx:for="{{item.merchant}}" wx:for-item="sitem" wx:key="key">
+                      <view class="cat-merchant__image"><image src="{{sitem.img}}" alt="{{sitem.name}}" mode="scaleToFill"></image></view>
+                      <text class="cat-merchant__name">{{sitem.name}}</text>
+                  </view>
+              </view>
+            </view>
+          </view>
+          <!-- cat-item e -->
         </view> 
       </view>
+      <!-- c_main e -->
     </view>
   </view>
   <!-- 导航 s -->
