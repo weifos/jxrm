@@ -1,2 +1,52 @@
 <!--pages/home/productDetail/productDetail.wxml-->
-<text>pages/home/productDetail/productDetail.wxml</text>
+<view class="container page-product-detail">
+  <view class="content">
+    <view class="content_div">
+      <view class="swipe_v">
+        <!--轮播-->
+        <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{imgUrls}}" wx:key="key">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" style="height:366rpx;width:100%;" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <!-- product-info s -->
+        <view class="product-info">
+          <view class="product-info__name">
+            {{productInfo.name}}
+          </view>
+          <view class="product-info__desc">
+           备注： {{productInfo.desc}}
+          </view>
+          <view class="{{collected==1 ? 'product-info__collect collected' : 'product-info__collect'}}" bindtap='bindCollectClick'>
+            <text class="i-collect vam dib"></text>
+            <text class="vam dib">收藏</text>
+          </view>
+          <view class="tab">
+            <view class="tab-t">
+                <view class="{{tab == '0' ? 'tab-t-item active' : 'tab-t-item'}}" data-id="0" bindtap='bindTabClick'>
+                  商品详情
+                </view>
+                <view class="{{tab == '1' ? 'tab-t-item active' : 'tab-t-item'}}" data-id="1" bindtap='bindTabClick'>
+                  供货商家
+                </view>
+            </view>
+            <view class="tab-c">
+                <view class="tab-c-item" wx:if="{{tab == '0'}}">
+                {{productInfo.content}}
+                </view>
+                <view class="tab-c-item" wx:elif="{{tab == '1'}}">
+                {{productInfo.shop}}
+                </view>
+            </view>
+          </view>
+        </view>
+      <!-- product-info e -->
+    </view>
+  </view>
+  <!-- 导航 s -->
+  <navBar></navBar>
+  <!-- 导航 e -->
+</view>

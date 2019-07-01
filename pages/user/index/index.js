@@ -7,7 +7,11 @@ const app = getApp()
 
 Page({
   data: {
-   
+   userInfo:{
+     id:111,
+     name:'用户1',
+     img:'user-unlogin.png',
+   }
   },
 
   onLoad: function() {   
@@ -44,7 +48,10 @@ Page({
         }
       }
     })
-  }
-  
-               
+  },
+  bindCollectClick:function(){
+    wx.navigateTo({
+      url: '../../collect/collect',
+    })
+  }          
 })

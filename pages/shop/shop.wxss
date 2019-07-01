@@ -1,1 +1,87 @@
 /* pages/shop/shop.wxss */
+.shop-info{
+  height: 380rpx;
+  background-color: #eee;
+  
+}
+
+.shop-info__name{
+  white-space: nowrap;
+  margin: 0 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 36rpx;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.hidden{
+  overflow: hidden;
+}
+.dib{
+  display: inline-block;
+}
+.tac{
+  text-align: center;
+}
+.mr5{
+  margin-right: 10rpx;
+}
+.vat{
+  vertical-align: top;
+}
+.shop-info__img{
+  padding: 0 20rpx;
+  float:left;
+}
+
+.shop-info__img image{
+  width: 250rpx;
+  height: 250rpx;
+  border:1px solid #ddd;
+  padding: 2rpx;
+}
+
+.shop-info__desc{
+  font-size:28rpx;
+  width: 420rpx;
+  height: 250rpx;
+  overflow: hidden;
+}
+
+.page-shop .product-list{
+  padding: 20rpx;
+  font-size: 0;
+}
+
+.page-shop .product-item{
+  width: 50%;
+  display: inline-block;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx 20rpx 0;
+  
+}
+
+.page-shop .product-item:nth-child(2n){
+  padding-right: 0;
+}
+
+.page-shop .product-item__img{
+  border:1px solid #ddd;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 10rpx;
+}
+
+.page-shop .product-item image{
+  width: 100%;
+  height: 250rpx;
+  
+}
+.product-item__name{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 40rpx;
+  max-width: 60%;
+}

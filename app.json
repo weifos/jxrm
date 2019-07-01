@@ -6,7 +6,8 @@
     "pages/user/index/index",
     "pages/resultList/resultList",
     "pages/search/search",
-    "pages/passport/authorize/authorize"
+    "pages/passport/authorize/authorize",
+    "pages/collect/collect"
   ],
   "window": {
     "backgroundColor": "#fff",

@@ -58,18 +58,27 @@ z-index: 5;
   padding: 20rpx;
   height: 100%;
   box-sizing: border-box;
+  font-size: 0;
 }
 
 .cate-list-merchant__item{
   position: relative;
-  width: 100%;
+  width: 225rpx;
   overflow:hidden; 
-  margin-bottom:30rpx;
+  margin-bottom:20rpx;
+  display: inline-block;
+  margin-right:20rpx;
+}
+.cate-list-merchant__item:nth-child(2n){
+  margin-right: 0;
 }
 .cate-list-merchant__image {
-  width: 100%;
-  height: 200rpx;
+  width: 225rpx;
+  height: 225rpx;
   
+}
+image{
+  vertical-align: top;
 }
 
 .cate-list-merchant__name{
