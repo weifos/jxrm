@@ -12,7 +12,7 @@
   "window": {
     "backgroundColor": "#fff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#4786e4",
+    "navigationBarBackgroundColor": "#209C38",
     "navigationBarTitleText": "书房扫码借",
     "navigationBarTextStyle": "black"
   },

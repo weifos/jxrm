@@ -1,139 +1,23 @@
-// miniprogram/pages/home/home.js
+var api = require("../../../modules/api.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'https://img.alicdn.com/imgextra/i4/2453833909/TB1t9Awi5AnBKNjSZFvXXaTKXXa_!!0-item_pic.jpg_430x430q90.jpg',
-      'https://img.alicdn.com/imgextra/i4/2453833909/TB1t9Awi5AnBKNjSZFvXXaTKXXa_!!0-item_pic.jpg_430x430q90.jpg',
-      'https://img.alicdn.com/imgextra/i4/2453833909/TB1t9Awi5AnBKNjSZFvXXaTKXXa_!!0-item_pic.jpg_430x430q90.jpg'
-    ],
+    banners: [],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
     duration: 1000,
-    cat: [
-      {
-        cname: '山货',
-        desc: '山货海货，即时享受',
-        banner: '../../../images/index/bn2.jpg',
-        merchant: [
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1商家1商家1商家1商家1商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-        ]
-      },
-      {
-        cname: '水产',
-        desc: '新鲜海货，即时享受',
-        banner: '../../../images/index/bn1.jpg',
-        merchant: [
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1商家1商家1商家1商家1商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-        ]
-      },
-      {
-        cname: '生鲜',
-        desc: '新鲜海货，即时享受',
-        banner: '../../../images/index/bn1.jpg',
-        merchant: [
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1商家1商家1商家1商家1商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-          {
-            name: '商家1',
-            img: '../../../images/index/i1.jpg',
-            id: 1
-          },
-        ]
-      },
-    ]
+    cat: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.api_200()
   },
 
   /**
@@ -178,7 +62,10 @@ Page({
 
   },
 
-  bindMerchantJump: function (event){
+  /**
+   * 查看门店详情
+   */
+  goStore: function (event){
     let id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: '../../../pages/shop/shop?id='+id,
@@ -200,5 +87,17 @@ Page({
     wx.navigateTo({
       url: '../search/search',
     })
+  },
+  //获取验证码
+  api_200: function () {
+    var this_ = this;
+    wx.post(api.api_200,wx.GetSign(),function (app, res) {
+        if (res.data.Basis.State != api.state.state_200) {
+          wx.showToast({ title: res.data.Basis.Msg, icon: 'none', duration: 3000 })
+        }else{
+          this_.setData({ banners: res.data.Result.banners })
+          this_.setData({ cat: res.data.Result.stores })
+        }
+      });
   }
 })
