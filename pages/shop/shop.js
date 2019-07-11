@@ -12,13 +12,13 @@ Component({
    */
   data: {
     shopInfo:{
-      id:111,
+      id:1,
       name:'我的小菜铺',
       img:'../../images/index/i1.jpg',
       desc:'经营山货，小食等等经营山货，小食等等经营山货，小食等等经营山货，小食等等',
       products:[
         {
-          id:111,
+          id:1,
           name:'小蘑菇',
           img:'../../images/index/i1.jpg',
           price:12
