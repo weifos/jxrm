@@ -55,5 +55,17 @@ Component({
         url: '../home/productDetail/productDetail?id=' + id
       })
     }
+  },
+  api_201: function () {
+    var this_ = this;
+    wx.post(api.api_201, wx.GetSign(), function (app, res) {
+      if (res.data.Basis.State != api.state.state_200) {
+        wx.showToast({ title: res.data.Basis.Msg, icon: 'none', duration: 3000 })
+      } else {
+        this_.setData({ banners: res.data.Result.banners })
+        this_.setData({ cat: res.data.Result.stores })
+      }
+    });
   }
+
 })
