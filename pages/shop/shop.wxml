@@ -8,10 +8,10 @@
         </view>
         <view class="hidden">
           <view class="shop-info__img">
-            <image src="{{shopInfo.img}}" alt=""></image>
+            <image src="{{shopInfo.imgurl}}" alt=""></image>
           </view>
           <view class="shop-info__desc">
-            {{shopInfo.desc}}
+            {{shopInfo.business_scope}}
           </view>
         </view>
       </view>
@@ -19,7 +19,7 @@
       <!-- c_main s -->
       <view class="c_main">
         <view class="product-list">
-              <view class="product-item" wx:for="{{shopInfo.products}}" wx:key="key" bindtap="bindProductJump" data-id="{{item.id}}" >
+              <view class="product-item" wx:for="{{products}}" wx:key="key" bindtap="bindProductJump" data-id="{{item.id}}" >
                 <view class="product-item__img">
                   <image src="{{item.img}}"></image>
                 </view>
