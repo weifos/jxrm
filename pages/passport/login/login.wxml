@@ -31,16 +31,16 @@
         <official-account></official-account>
       </view>
       
-      <view class="copy">&copy;2019 畅云科技 版权所有</view>
+      <view class="copy">&copy;2019 鄱阳湖农产品 版权所有</view>
     </view>
   </view>
   <!-- 快速登陆弹框 -->  
   <view class="toast_div {{showFlag ? 'show_toast':''}}">
       <view class="toast_c">
-        <view class="tlt_shuf">书房扫码借</view>
+        <view class="tlt_shuf">鄱阳湖农产品平台</view>
         <view class="toast_shuf">手机扫码快速借阅，免排队</view>
         <!-- <view class="rules">我已同意借阅规则</view> -->
-          <button class="fast_login" open-type="getPhoneNumber" bindgetphonenumber="getMobile" >快速登陆</button>
+          <button class="fast_login" open-type="getPhoneNumber" bindgetphonenumber="getMobile" >快速登录</button>
       </view>
   </view>
 
