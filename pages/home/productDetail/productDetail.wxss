@@ -66,6 +66,30 @@
   vertical-align: middle;
 }
 
-.product-info__collect{
+.detail-tool-bar{
+  position: fixed;
+  bottom: 120rpx;
+  
+  font-size: 0;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #069e40;
+}
+.detail-tool-bar .phone{
+  width: 70%;
+  font-size: 36rpx;
+  background-color: #069e40;
+  color: #fff;
+  display: inline-block;
+  height: 80rpx;
+  line-height:80rpx;
+  font-weight: bold;
+}
+.detail-tool-bar .product-info__collect{
+  width: 30%;
   font-size: 24rpx;
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
 }

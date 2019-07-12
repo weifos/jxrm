@@ -20,10 +20,6 @@
           <view class="product-info__desc">
            备注： {{productInfo.desc}}
           </view>
-          <view class="{{collected==1 ? 'product-info__collect collected' : 'product-info__collect'}}" bindtap='bindCollectClick'>
-            <text class="i-collect vam dib"></text>
-            <text class="vam dib">收藏</text>
-          </view>
           <view class="tab">
             <view class="tab-t">
                 <view class="{{tab == '0' ? 'tab-t-item active' : 'tab-t-item'}}" data-id="0" bindtap='bindTabClick'>
@@ -44,6 +40,15 @@
           </view>
         </view>
       <!-- product-info e -->
+    </view>
+  </view>
+  <view class="detail-tool-bar">
+    <view class="phone">
+     电话： 010-00987787
+    </view>
+    <view class="{{collected==1 ? 'product-info__collect collected' : 'product-info__collect'}}" bindtap='bindCollectClick'>
+      <text class="i-collect vam dib"></text>
+      <text class="vam dib">收藏</text>
     </view>
   </view>
   <!-- 导航 s -->

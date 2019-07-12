@@ -31,60 +31,44 @@ Component({
            '山货分类1',
            '山货分类1',
         ]
-      },
-      {
-        classifysName: '水产',
-        cateClassify: [
-           '水产分类1',
-           '水产分类1',
-           '水产分类1',
-           '水产分类1',
-           '水产分类1',
-           '水产分类1',
-        ]
-      },
-      {
-        classifysName: '生鲜',
-        cateClassify: [
-           '生鲜分类1',
-           '生鲜分类1',
-           '生鲜分类1',
-           '生鲜分类1',
-           '生鲜分类1',
-           '生鲜分类1',
-        ]
       }
     ],
     cateContent:[
       {
         name: '商家1',
         img: '../../images/index/bn2.jpg',
+        desc: '商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         id:1
       },
       {
         name: '商家1',
         img: '../../images/index/bn2.jpg',
+        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
         id: 1
       },
       {
         name: '商家1',
         img: '../../images/index/bn2.jpg',
+        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
         id: 1
         
       },
       {
         name: '商家1',
         img: '../../images/index/bn2.jpg',
+        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
         id: 1
       },
       {
         name: '商家1',
         img: '../../images/index/bn2.jpg',
+        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
         id: 1
       },
       {
         name: '商家1',
         img: '../../images/index/bn2.jpg',
+        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
         id: 1
       },
     ]
@@ -94,6 +78,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    /**
+   * 查看门店详情
+   */
+    goStore: function (event) {
+      let id = event.currentTarget.dataset.id
+      wx.navigateTo({
+        url: '../home/productDetail/productDetail?id=' + id,
+      })
+    },
   }
+  
 })

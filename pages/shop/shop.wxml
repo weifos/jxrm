@@ -28,7 +28,7 @@
                     {{item.name}}
                   </view>
                   <view class="product-item__price dib vat">
-                    {{item.sale_price}}元/斤
+                    <text class="color-red">{{item.sale_price}}</text>元/斤
                   </view>
                 </view>
               </view>
