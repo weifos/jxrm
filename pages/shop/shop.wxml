@@ -15,23 +15,23 @@
           </view>
         </view>
       </view>
-      
+
       <!-- c_main s -->
       <view class="c_main">
         <view class="product-list">
-              <view class="product-item" wx:for="{{products}}" wx:key="key" bindtap="goProductDetails" data-id="{{item.id}}" >
-                <view class="product-item__img">
-                  <image src="{{item.img_url}}"></image>
-                </view>
-                <view class="tac">
-                  <view class="product-item__name dib mr5 vat">
-                    {{item.name}}
-                  </view>
-                  <view class="product-item__price dib vat">
-                    <text class="color-red">{{item.sale_price}}</text>元/斤
-                  </view>
-                </view>
+          <view class="product-item" wx:for="{{products}}" wx:key="key" bindtap="goProductDetails" data-id="{{item.id}}">
+            <view class="product-item__img">
+              <image src="{{item.img_url}}"></image>
+            </view>
+            <view class="tac">
+              <view class="product-item__name dib mr5 vat">
+                {{item.name}}
               </view>
+              <view class="product-item__price dib vat">
+                <text class="color-red">{{item.sale_price}}</text>元/{{item.unit}}
+              </view>
+            </view>
+          </view>
         </view>
       </view>
       <!-- c_main e -->

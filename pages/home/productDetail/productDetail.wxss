@@ -1,5 +1,5 @@
 /* pages/home/productDetail/productDetail.wxss */
-
+@import "../../../modules/wxParse/wxParse.wxss";
 .product-info{
   padding: 20rpx;
 }
@@ -45,7 +45,9 @@
 .tab-c{
   font-size: 30rpx;
 }
-
+.tab-c-item{
+  margin-bottom: 0rpx;
+}
 .i-collect{
   
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAgCAYAAAB6kdqOAAAFRUlEQVRYR8WXf2xURRDHv/Pu2l6rEAX8AW1UoOLPSIxBKQkYoEUIJKiYJ73bx3Fag0I0Ek0wxmDFfyQxwRgxIW1ar2/fNV78VSuBCNgQIqgYRY2osWI0iGhEbYWjd763Y6a5mgItvUKB+etub2b2s3u7350hDGKe51Uz8z3MPBPABACjARwBsI+I3urp6Xmzrq7uz4HCGxsbx0QikSUAljDzVABjAXQDOEREu4jo7Vgstn2gWDp50HXdGcy8gYhuHww2P34UwLqKiooNs2fP9mWso6MjfPDgwdVEtJaZLz5dPDN/QkSrHcfZ3d/vBCCt9UpmfglAEYBfADSEw+HNoVDowLFjxzKlpaXlvu9XAYgCmM/MEr/b9/2FklR8AcwgImbmrUSUCofDeyzLOgSgNAiCSXnfhwCUA/iXiB5XSr3aB/U/UB5mIwBJtj4Siayzbfv4YKtMpVJzgiBoBDARwOd5v1sB/MjMdcuWLftgsNh0Ol3a09OzlojWACAiWtUH1QuUSqWqgiDYKYskooRSKjnE39X7c2tr6wTf9+Us3CDfiWh/KBSqqa2tlR0Z0rTWcWZuBuCHQqE7o9Honl4grfUeZp4OYL3jOE8Nmamfg9Z6tDHmMRmyLOtlpZQc3oLNdd0XAKwhoo+UUlWktZ7LzLLKQ5lM5toVK1ZkCs42Ao6bNm0qKysr+15uMhFVC9ArzLwKwHOO49SPwBzDTuG6rsz7LBFtJNd1vwBwi1xzpdTeYWcbgQCt9TSRAQBfCtAfIlzGmHHxeFyE77xbMpkca1mWcBwRoJzoju/7pYlEoue80wAQGchms3J2cwIkV3R8EASVy5cv/+FCALmuex2Ab0WM5VC3M/MiInpQKdV0IYD6ifI7AiTi9BqAXY7jzLoQQK7ryoGeBuB+amtrG9Xd3X0AwDgAix3Hefd8QrmuWyuPBYDDvu9P7FVqz/MeMcbIA/erMWZaPB6Xh/Wcm+d5VxtjZHcuBxB3HKelFyidTodyudxWZq4G8Knv+zWJROLvc0nked6lxpgOAFOJaItSSiqG3vKh19Lp9JhsNvsxgEoAnxlj5p0rXcrrzjYAUh18U1JSUmXbdpdwnFwPVTDzDgBTiOgry7JqotHobyO5Uw0NDVdEIhF5O28G8J0xZm7/I3JKxdjc3HxlUVHRdma+aaCAs4GTciUIgh3MfD0zfx0EQXUikTjcP+cpQPJjKpUaFwTB+/ktPWBZ1pxYLPbT2cC0tLRcRUSy+5VEtC+/+/JcnGADAuVvnhy6LQDuAPAzgLmO43SeCVRTU9OkcDi8g4iuAbDXsqy7YrHYXwPlGhRInPMaJXXyTCKSJ6ZGKbV/OFDJZHKKZVmyMxVSfxPRgtMVcacFkonb29vLurq62vKS8DuAeY7jSMkypGmtb8wXf+MB7CwpKVlk27Z0K4PakEAS2dzcHAmHw28AWEhE0ovNH6p2cl13KjNvI6LLAGzLZDJ3F1KNFgSU16niXC7Xysz3EpFoxkKl1IcDLdXzvNvkUhDRGACbfd+/r9DSpmAgmbi+vj5cWVmZZOYoER21LGtxNBo9od3RWk9nZrkMl0iHWlxcvNS2bam5CrJhAeWhrMmTJ0s/lgBwnIiWKKUEQN7EWcaY9wCMIqLXy8vLVV9XWxDNyUpdaJB0rJ7nSXOwEkA2FAotNcb8w8xtAC6yLKulqKjoAdu2g0Jz9vkNe4f6T6C1fpGZn5CWGIBMHiGihs7Ozofr6+vNcGHE/6yAJIHW+nlmfkY+M/NGx3Eeld7+TGBGBEiSuK77tNwopdSTZwrSF/cfn8FT6Ep50TkAAAAASUVORK5CYII=) no-repeat 0 0 /100% auto;
@@ -68,8 +70,7 @@
 
 .detail-tool-bar{
   position: fixed;
-  bottom: 120rpx;
-  
+  bottom: -1rpx;
   font-size: 0;
   white-space: nowrap;
   width: 100%;
@@ -92,4 +93,5 @@
   display: inline-block;
   height: 80rpx;
   line-height: 80rpx;
+  background:#ffffff;
 }

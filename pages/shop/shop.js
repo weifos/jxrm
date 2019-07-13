@@ -28,7 +28,7 @@ Component({
       loadComplete: false,
       loading: false
     },
-    products: [ ]
+    products: []
   },
 
   /**
@@ -37,6 +37,8 @@ Component({
   methods: {
     //加载
     onLoad: function(opt) {
+      this.data.pager.index = 0
+      console.log(this.data.pager.index)
       this.api_201(opt)
       this.api_202(opt)
     },
@@ -51,7 +53,6 @@ Component({
      */
     onReachBottom: function(e) {
       if (!this.data.pager.loading) {
- 
         this.api_202(e)
       }
     },
@@ -99,7 +100,6 @@ Component({
             duration: 3000
           })
         } else {
-          debugger
           this_.setData({
             products: res.data.Result
           })

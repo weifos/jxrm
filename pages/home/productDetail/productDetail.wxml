@@ -1,11 +1,12 @@
 <!--pages/home/productDetail/productDetail.wxml-->
+<import src="../../../modules/wxParse/wxParse.wxml"/>
 <view class="container page-product-detail">
   <view class="content">
     <view class="content_div">
       <view class="swipe_v">
         <!--轮播-->
-        <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-          <block wx:for="{{imgUrls}}" wx:key="key">
+        <swiper class="banner" indicator-dots="{{product.introduction}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{imgs}}" wx:key="key">
             <swiper-item>
               <image src="{{item}}" class="slide-image" style="height:366rpx;width:100%;" />
             </swiper-item>
@@ -15,10 +16,10 @@
       <!-- product-info s -->
         <view class="product-info">
           <view class="product-info__name">
-            {{productInfo.name}}
+            {{product.name}}
           </view>
           <view class="product-info__desc">
-           备注： {{productInfo.desc}}
+           {{product.introduction}}
           </view>
           <view class="tab">
             <view class="tab-t">
@@ -30,11 +31,11 @@
                 </view>
             </view>
             <view class="tab-c">
-                <view class="tab-c-item" wx:if="{{tab == '0'}}">
-                {{productInfo.content}}
+                <view class="tab-c-item" wx:if="{{tab == '0'}}">   
+                <template is="wxParse" data="{{wxParseData:details.nodes}}"/>
                 </view>
                 <view class="tab-c-item" wx:elif="{{tab == '1'}}">
-                {{productInfo.shop}}
+                店铺介绍
                 </view>
             </view>
           </view>
@@ -44,7 +45,7 @@
   </view>
   <view class="detail-tool-bar">
     <view class="phone">
-     电话： 010-00987787
+     拨打电话：010-00987787
     </view>
     <view class="{{collected==1 ? 'product-info__collect collected' : 'product-info__collect'}}" bindtap='bindCollectClick'>
       <text class="i-collect vam dib"></text>
@@ -52,6 +53,6 @@
     </view>
   </view>
   <!-- 导航 s -->
-  <navBar></navBar>
+  <!-- <navBar></navBar> -->
   <!-- 导航 e -->
 </view>
