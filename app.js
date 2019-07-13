@@ -1,6 +1,7 @@
 //身份认证脚本
 var passport = require("./modules/passport.js")
-var md5 = require("./utils/md5.js")
+//var md5 = require("./modules/md5.js")
+var md5 = require("./modules/cryptojs/lib/MD5.js")
  
 App({
   onLaunch: function () {
@@ -112,6 +113,7 @@ wx.GetSign = function(obj = {}) {
       Token: " "
     }
   }
+   
   return {
     Data: obj,
     Global: {
@@ -119,7 +121,7 @@ wx.GetSign = function(obj = {}) {
       IMSI: "",
       IP: "",
       OS: 3,
-      Sign: md5.hexMD5(JSON.stringify(sort(sign_data)) + ')(4AzEdr5J6a`@#$*%'),
+      Sign: md5.MD5(JSON.stringify(sort(sign_data)) + ')(4AzEdr5J6a`@#$*%'),
       Token: ' '
     }
   }

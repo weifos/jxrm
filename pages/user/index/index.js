@@ -1,6 +1,5 @@
 //index.js
-//请求js
-var ajax = require("../../.././utils/ajax.js")
+//请求js 
 var common = require("../../.././modules/passport.js")
 //应用实列
 const app = getApp()

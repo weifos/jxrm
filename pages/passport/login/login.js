@@ -1,5 +1,4 @@
 // miniprogram/pages/login/login.js
-var WXBizDataCrypt = require('../../../utils/WXBizDataCrypt.js')
 var passport = require("../../../modules/passport.js")
 var api = require("../../../modules/api.js")
 
