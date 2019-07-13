@@ -1,4 +1,4 @@
-// pages/cateList/cateList.js
+var api = require("../../modules/api.js")
 Component({
   /**
    * 组件的属性列表
@@ -11,67 +11,20 @@ Component({
    * 组件的初始数据
    */
   data: {
-    imgUrls: [
-      'https://img.alicdn.com/imgextra/i4/2453833909/TB1t9Awi5AnBKNjSZFvXXaTKXXa_!!0-item_pic.jpg_430x430q90.jpg',
-      'https://img.alicdn.com/imgextra/i4/2453833909/TB1t9Awi5AnBKNjSZFvXXaTKXXa_!!0-item_pic.jpg_430x430q90.jpg',
-      'https://img.alicdn.com/imgextra/i4/2453833909/TB1t9Awi5AnBKNjSZFvXXaTKXXa_!!0-item_pic.jpg_430x430q90.jpg'
-    ],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
     duration: 1000,
-    cateList:[
-      {
-        classifysName:'山货',
-        cateClassify:[
-          '山货分类1山货分类1山货分类1山货分类1',
-           '山货分类1',
-           '山货分类1',
-           '山货分类1',
-           '山货分类1',
-           '山货分类1',
-        ]
-      }
+    products: [],
+    cateList: [],
+    cateContent: [
     ],
-    cateContent:[
-      {
-        name: '商家1',
-        img: '../../images/index/bn2.jpg',
-        desc: '商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1商家1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        id:1
-      },
-      {
-        name: '商家1',
-        img: '../../images/index/bn2.jpg',
-        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
-        id: 1
-      },
-      {
-        name: '商家1',
-        img: '../../images/index/bn2.jpg',
-        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
-        id: 1
-        
-      },
-      {
-        name: '商家1',
-        img: '../../images/index/bn2.jpg',
-        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
-        id: 1
-      },
-      {
-        name: '商家1',
-        img: '../../images/index/bn2.jpg',
-        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
-        id: 1
-      },
-      {
-        name: '商家1',
-        img: '../../images/index/bn2.jpg',
-        desc: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
-        id: 1
-      },
-    ]
+    pager: {
+      size: 6,
+      index: 0,
+      loadComplete: false,
+      loading: false
+    }
   },
 
   /**
@@ -79,14 +32,42 @@ Component({
    */
   methods: {
     /**
-   * 查看门店详情
-   */
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (opt) {
+      this.api_204()
+    },
+    /**
+     * 查看门店详情
+     */
     goStore: function (event) {
       let id = event.currentTarget.dataset.id
       wx.navigateTo({
         url: '../home/productDetail/productDetail?id=' + id,
       })
     },
+    //获取店铺分类
+    api_204: function () {
+      var this_ = this;
+      wx.post(api.api_204, wx.GetSign({
+        PageSize: this_.data.pager.size
+      }), function (app, res) {
+        if (res.data.Basis.State != api.state.state_200) {
+          wx.showToast({
+            title: res.data.Basis.Msg,
+            icon: 'none',
+            duration: 3000
+          })
+        } else {
+          this_.setData({
+            cateList: res.data.Result[0].catgs
+          })
+          this_.setData({
+            products: res.data.Result[1].products
+          })
+        }
+      });
+    }
   }
-  
+
 })

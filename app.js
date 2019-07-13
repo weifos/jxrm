@@ -113,7 +113,7 @@ wx.GetSign = function(obj = {}) {
       Token: " "
     }
   }
-  
+
   return {
     Data: obj,
     Global: {
@@ -126,9 +126,4 @@ wx.GetSign = function(obj = {}) {
     }
   }
 }
-// module.exports = {
-//   // GET: GET,
-//   // POST: POST,
-//   $ajax,
-//   requestHandler
-// }
+ 

@@ -43,7 +43,7 @@ module.exports = {
   api_202 : domain + "202",
   //商品库存详情
   api_203 : domain + "203",
-  //加入购物车
+  //店铺分类
   api_204 : domain + "204",
   //清空购物车
   api_205 : domain + "205",
