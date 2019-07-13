@@ -1,10 +1,10 @@
 //身份认证脚本
 var passport = require("./modules/passport.js")
-//var md5 = require("./modules/md5.js")
-var md5 = require("./modules/cryptojs/lib/MD5.js")
- 
+var md5 = require("./modules/md5.js")
+//var md5 = require("./modules/cryptojs/lib/MD5.js")
+
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
@@ -13,7 +13,7 @@ App({
   },
   globalData: {
     userInfo: {},
-    tostr(){
+    tostr() {
 
     }
   }
@@ -68,7 +68,7 @@ wx.GetSign = function(obj = {}) {
 
   let {
     token
-  } = ' '
+  } = ''
 
   function sort(obj) {
 
@@ -113,7 +113,7 @@ wx.GetSign = function(obj = {}) {
       Token: " "
     }
   }
-   
+  
   return {
     Data: obj,
     Global: {
@@ -121,7 +121,7 @@ wx.GetSign = function(obj = {}) {
       IMSI: "",
       IP: "",
       OS: 3,
-      Sign: md5.MD5(JSON.stringify(sort(sign_data)) + ')(4AzEdr5J6a`@#$*%'),
+      Sign: md5.hexMD5(JSON.stringify(sort(sign_data)) + ')(4AzEdr5J6a`@#$*%'),
       Token: ' '
     }
   }

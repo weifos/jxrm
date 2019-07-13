@@ -154,7 +154,5 @@
   MD5._blocksize = 16;
 
   MD5._digestsize = 16;
-  module.exports = {
-    MD5: MD5._md5
-  }
+ 
 })();

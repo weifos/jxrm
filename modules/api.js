@@ -1,7 +1,9 @@
-//接口域名  
-//let domain = "https://zjssl.lib.szclouds.com/"
-let domain = "http://ns.api.nongshang.com/"
-let res_domain = "https://ns.res.nongshang.com/"
+//测试环境  
+//let domain = "http://ns.api.nongshang.com/"
+//let res_domain = "https://ns.res.nongshang.com/"
+//正式环境
+let domain = "http://ns.api.weifos.com/"
+let res_domain = "https://ns.res.weifos.com/"
 
 /// <summary>
 /// 全局配置类
