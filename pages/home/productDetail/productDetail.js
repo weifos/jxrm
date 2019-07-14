@@ -82,7 +82,9 @@ Page({
   onShareAppMessage: function() {
 
   },
-
+  /**
+   * Tab切换
+   */
   bindTabClick: function(event) {
     let id = event.currentTarget.dataset.id;
     this.setData({

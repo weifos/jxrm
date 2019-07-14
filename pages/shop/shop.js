@@ -23,7 +23,7 @@ Component({
       business_scope: '-'
     },
     pager: {
-      size: 8,
+      size: 6,
       index: 0,
       loadComplete: false,
       loading: false
@@ -37,10 +37,12 @@ Component({
   methods: {
     //加载
     onLoad: function(opt) {
-      this.data.pager.index = 0
-      console.log(this.data.pager.index)
-      this.api_201(opt)
-      this.api_202(opt)
+      this.setData({
+        sid: opt.id
+      })
+      this.data.pager.index = 0  
+      this.api_201()
+      this.api_202()
     },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
@@ -52,8 +54,10 @@ Component({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function(e) {
-      if (!this.data.pager.loading) {
-        this.api_202(e)
+      if (!this.data.pager.loading && !this.data.pager.loadComplete) {
+        this.data.pager.loading = true
+        this.data.pager.index++
+        this.api_202()
       }
     },
     //查看商品详情
@@ -64,10 +68,10 @@ Component({
       })
     },
     //加载店铺详情
-    api_201: function(opt) {
+    api_201: function() {
       var this_ = this;
       wx.post(api.api_201, wx.GetSign({
-        ID: opt.id
+        ID: this_.data.sid
       }), function(app, res) {
         if (res.data.Basis.State != api.state.state_200) {
           wx.showToast({
@@ -83,13 +87,11 @@ Component({
       });
     },
     //加载店铺商品
-    api_202: function(opt) {
-      var this_ = this; 
-      this.data.pager.index++
-      this.data.pager.loading = true
+    api_202: function() {
+      var this_ = this
 
       wx.post(api.api_202, wx.GetSign({
-        ID: opt.id,
+        ID: this_.data.sid,
         Size: this_.data.pager.size,
         Index: this_.data.pager.index
       }), function(app, res) {
@@ -100,10 +102,26 @@ Component({
             duration: 3000
           })
         } else {
+
+          if (res.data.Result.length == 0) {
+            this_.setData({
+              ['pager.loadComplete']: true
+            })
+            wx.showToast({
+              title: '加载完成',
+              icon: 'success',
+              duration: 3000
+            })
+          }
+
+          res.data.Result.forEach(function (o, i) {
+            this_.data.products.push(o)
+          })
           this_.setData({
-            products: res.data.Result
+            products: this_.data.products
           })
         }
+        this_.data.pager.loading = false
       });
     }
 

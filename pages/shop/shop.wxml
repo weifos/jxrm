@@ -18,7 +18,7 @@
 
       <!-- c_main s -->
       <view class="c_main">
-        <view class="product-list">
+        <scroll-view class="product-list" >
           <view class="product-item" wx:for="{{products}}" wx:key="key" bindtap="goProductDetails" data-id="{{item.id}}">
             <view class="product-item__img">
               <image src="{{item.img_url}}"></image>
@@ -32,7 +32,7 @@
               </view>
             </view>
           </view>
-        </view>
+        </scroll-view>
       </view>
       <!-- c_main e -->
     </view>
