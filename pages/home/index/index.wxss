@@ -41,7 +41,7 @@
 
 .c_main{
 	width: 100%;
-	padding: 30rpx 0 0 0;
+	/* padding: 30rpx 0 0 0; */
 }
 .c_main .main_ul{
 
