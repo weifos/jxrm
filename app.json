@@ -6,13 +6,14 @@
     "pages/user/index/index",
     "pages/resultList/resultList",
     "pages/search/search",
-    "pages/passport/authorize/authorize"
+    "pages/passport/authorize/authorize",
+    "pages/collect/collect"
   ],
   "window": {
     "backgroundColor": "#fff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#4786e4",
-    "navigationBarTitleText": "书房扫码借",
+    "navigationBarBackgroundColor": "#209C38",
+    "navigationBarTitleText": "鄱阳湖农产品平台",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

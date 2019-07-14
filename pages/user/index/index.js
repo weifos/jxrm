@@ -1,13 +1,16 @@
 //index.js
-//请求js
-var ajax = require("../../.././utils/ajax.js")
+//请求js 
 var common = require("../../.././modules/passport.js")
 //应用实列
 const app = getApp()
 
 Page({
   data: {
-   
+   userInfo:{
+     id:111,
+     name:'用户1',
+     img:'user-unlogin.png',
+   }
   },
 
   onLoad: function() {   
@@ -44,7 +47,10 @@ Page({
         }
       }
     })
-  }
-  
-               
+  },
+  bindCollectClick:function(){
+    wx.navigateTo({
+      url: '../../collect/collect',
+    })
+  }          
 })

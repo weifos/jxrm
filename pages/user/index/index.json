@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "书房扫码借",
   "navigationBarTextStyle": "white",
-  "backgroundColor": "#F6F6F6"
+  "backgroundColor": "#F6F6F6",
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar"
+  }
 }

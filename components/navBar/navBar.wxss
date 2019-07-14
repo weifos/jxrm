@@ -1,0 +1,29 @@
+/* components/navBar/navBar.wxss */
+.nav{
+  position: fixed;
+  left: 0;
+  bottom:0;
+  box-shadow: 0 -2rpx 2rpx rgba(0,0,0,0.2);
+  width: 100%;
+  display: flex;
+  text-align: center;
+  font-size: 24rpx;
+  justify-content:space-between;
+  align-items:center;
+  height: 120rpx;
+   flex-shrink: 1; 
+   background: #fff;
+   z-index: 6;
+}
+.nav text{
+  display: block;
+}
+.nav navigator{
+  width: 33.33%;
+}
+
+.nav image{
+	width:44rpx;
+  height:44rpx;
+  margin-bottom: 6rpx;
+}

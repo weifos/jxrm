@@ -1,7 +1,6 @@
 //应用实列
 const app = getApp()
-var passport = require("../../.././modules/passport.js")
-var WXBizDataCrypt = require('../../../utils/WXBizDataCrypt.js')
+var passport = require("../../.././modules/passport.js") 
 
 Page({
 

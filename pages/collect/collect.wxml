@@ -1,0 +1,22 @@
+<!--pages/collect/collect.wxml-->
+<view class="container page-collect">
+  <view class="content">
+      <!-- product-list s -->
+      <view class="product-list">
+          <view class="product-item" wx:for="{{list}}" wx:key="key" bindtap="bindProductJump" data-id="{{item.id}}" >
+            <view class="product-item__img">
+              <image src="{{item.img}}"></image>
+            </view>
+            <view class="tac">
+              <view class="product-item__name dib mr5 vat">
+                {{item.name}}
+              </view>
+            </view>
+          </view>
+      </view>
+      <!-- product-list e -->
+ </view>
+ <!-- 导航 s -->
+  <navBar></navBar>
+  <!-- 导航 e -->
+</view>

@@ -1,7 +1,9 @@
-//接口域名  
-//let domain = "https://zjssl.lib.szclouds.com/"
-let domain = "http://zj.api.com/"
-let res_domain = "https://zjssl.lib.szclouds.com/"
+//测试环境  
+//let domain = "http://ns.api.nongshang.com/"
+//let res_domain = "https://ns.res.nongshang.com/"
+//正式环境
+let domain = "http://ns.api.weifos.com/"
+let res_domain = "https://ns.res.weifos.com/"
 
 /// <summary>
 /// 全局配置类
@@ -41,7 +43,7 @@ module.exports = {
   api_202 : domain + "202",
   //商品库存详情
   api_203 : domain + "203",
-  //加入购物车
+  //店铺分类
   api_204 : domain + "204",
   //清空购物车
   api_205 : domain + "205",

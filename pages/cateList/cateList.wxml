@@ -1,0 +1,46 @@
+<!--pages/cateList/cateList.wxml-->
+<view class="container page-cateList">
+  <view class="content">
+    <view class="content_div">
+      <view class="tool-bar">
+        <view class="dib input__address"><input class=""  placeholder="请输入店铺名称" /></view>
+        <view class="btn-search dib"><image src="../../images/cateList/search.jpg"></image><text>搜索</text></view>
+      </view>
+      <!-- c_main s -->
+      <view class="c_main">
+        <!-- cate_classify s -->
+        <view class="cate-classify">
+          <view class="cate-classify__wrap">
+          <view class="classify-list">
+            <view class="classify-item" >
+              <view class="classify-main__list">
+                  <view class="`classify-main__list-item {{index==0 ? 'cur' : ''}}`" wx:for="{{cateList}}" wx:for-item="item" wx:key="key">
+                    {{item.name}}
+                  </view>
+              </view>
+            </view>
+            </view>
+          </view>
+        </view>
+        <!-- cate_classify e -->
+        <view class="cate-list"> <view class="cate-list__wrap">
+          <!-- cat-item s -->
+          <view class="cate-list-content">
+            <view class="cate-list-merchant__item" wx:for="{{products}}" wx:for-item="sitem" wx:key="key" bindtap="goStore" data-id="{{sitem.id}}">
+            <view class="cate-list-merchant__image"><image src="{{sitem.imgurl}}" alt="{{sitem.name}}" mode="scaleToFill"></image></view>
+            <view class="cate-list-merchant__text">
+              <view class="cate-list-merchant__name">{{sitem.name}}</view>
+              <view class="cate-list-merchant__desc">111</view>
+             </view>
+            </view>
+          </view>
+          <!-- cat-item e -->
+        </view> </view>
+      </view>
+      <!-- c_main e -->
+    </view>
+  </view>
+  <!-- 导航 s -->
+  <navBar></navBar>
+  <!-- 导航 e -->
+</view>

@@ -1,5 +1,9 @@
 {
-  "navigationBarTitleText": "江西瑞茂农商平台",
+  "navigationBarTitleText": "鄱阳湖农产品平台",
+  "enablePullDownRefresh": true,
   "navigationBarTextStyle": "white",
-  "backgroundColor": "#F6F6F6"
+  "backgroundColor": "#F6F6F6",
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar"
+  }
 }
