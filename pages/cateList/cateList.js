@@ -49,11 +49,14 @@ Component({
           this.api_205()
       }
     },
+    /**
+     * 选择分类
+     */
     selectCatg: function (event) {
-      let id = event.currentTarget.dataset.id;
+      let id = event.currentTarget.dataset.id
       this.setData({
         catgId: id
-      }); 
+      })
       this.search()
     },
     /**
@@ -64,11 +67,17 @@ Component({
       wx.navigateTo({
         url: '../home/productDetail/productDetail?id=' + id,
       })
-    }, //查询
+    }, 
+    /**
+     * 查询
+     */
     search() {
       this.setData({
         ['pager.index']: 0
       })
+      this.setData({
+        ['pager.loadComplete']: false
+      }) 
       this.setData({
         stores: []
       })

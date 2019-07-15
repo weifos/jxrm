@@ -1,9 +1,9 @@
 //测试环境  
-//let domain = "http://ns.api.nongshang.com/"
-//let res_domain = "https://ns.res.nongshang.com/"
+let domain = "http://ns.api.nongshang.com/"
+let res_domain = "https://ns.res.nongshang.com/"
 //正式环境
-let domain = "http://ns.api.weifos.com/"
-let res_domain = "https://ns.res.weifos.com/"
+//let domain = "http://ns.api.weifos.com/"
+//let res_domain = "https://ns.res.weifos.com/"
 
 /// <summary>
 /// 全局配置类
@@ -19,7 +19,7 @@ module.exports = {
   api_101 : domain + "101",
   //获取微信wxconfig
   api_102 : domain + "102",
-  //修改密码
+  //根据Code换取SessionKey
   api_103 : domain + "103",
   //获取SessionKey
   api_104 : domain + "104",

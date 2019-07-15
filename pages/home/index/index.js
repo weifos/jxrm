@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    //快速登录
+    showFlag: false, 
     banners: [],
     indicatorDots: true,
     autoplay: true,
@@ -76,16 +78,6 @@ Page({
    */
   onShareAppMessage: function() {
 
-  },
-  topageList: function() {
-    wx.navigateTo({
-      url: '../list/list',
-    })
-  },
-  topageSearch: function() {
-    wx.navigateTo({
-      url: '../search/search',
-    })
   },
   //获取验证码
   api_200: function() {

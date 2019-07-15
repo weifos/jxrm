@@ -8,7 +8,7 @@
       </view>
       <view class="user-info-content">
         <view class="user-info__id">
-          11112345551
+          未登录
         </view>
       </view>
       <!-- user-info e-->
@@ -25,6 +25,17 @@
         </view>
       </view>
   </view>
+
+    <!-- 快速登陆弹框 -->  
+  <view class="toast_div {{showFlag ? 'show_toast':''}}">
+      <view class="toast_c">
+        <view class="tlt_shuf">您当前未登录</view>
+        <view class="toast_shuf">点击授权快速登录</view>
+        <!-- <view class="rules">我已同意借阅规则</view> -->
+          <button class="fast_login" open-type="getPhoneNumber" bindgetphonenumber="getMobile" >快速登录</button>
+      </view>
+  </view>
+
   <!-- 导航 s -->
   <navBar></navBar>
   <!-- 导航 e -->

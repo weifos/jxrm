@@ -1,9 +1,10 @@
 // 公用js函数
-var api = require("./api.js")
+var api = require("./api.js") 
 
 module.exports = {
   //授权登录
   AuthLogin() {
+    debugger
     let that = this;
     //检查登录
     wx.checkSession({
@@ -17,7 +18,7 @@ module.exports = {
               wx.redirectTo({ url: '../../user/index/index' })
             } else {
               //隐藏授权确认框
-              that.setData({ showFlag: false })
+              //that.setData({ showFlag: false })
             }
           },
           fail: res => {
@@ -31,14 +32,14 @@ module.exports = {
       }
     })
   },
-  //获取SessionKey
+  /**
+   * 调用小程序login方法获取Code,通过Code获取Key
+   */
   GetSessionKey() {
-    //调用小程序login方法获取Code,通过Code获取Key
     wx.login({
       success: function (res) {
         if (res.code) {
-          //根据获取到的Code通过服务器换取SessionKey
-          wx.post(api.api_104, wx.GetSign({ Code: res.code }), function (app, res) {
+          wx.post(api.api_103, wx.GetSign({ Code: res.code }), function (app, res) {
             if (res.data.Basis.State == api.state.state_200) {
               //获取到的SessionKey存入本地存取文件
               //setStorage同步，setStorageSync异步
@@ -69,7 +70,7 @@ module.exports = {
   //用户授权页面
   toAuth() {
     wx.redirectTo({
-      url: '../authorize/authorize'
+      url: '../../passport/authorize/authorize'
     })
   },
   //获取用户信息
@@ -77,17 +78,14 @@ module.exports = {
     //获取用户信息，获取之前是否已经授权
     wx.getSetting({
       success: res => {
-
+debugger
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: function (res) {
               var userInfo = res.userInfo
-
               var pc = new WXBizDataCrypt(wx.getStorageSync('appId'), wx.getStorageSync('session_key'))
               var data = pc.decryptData(res.encryptedData, res.iv)
-              debugger
-
               wx.setStorage({
                 key: "userInfo",
                 data: userInfo

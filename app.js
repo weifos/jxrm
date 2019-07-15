@@ -9,7 +9,7 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-    //passport.AuthLogin()
+    passport.AuthLogin()
   },
   globalData: {
     userInfo: {},

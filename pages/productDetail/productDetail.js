@@ -15,10 +15,8 @@ Page({
     interval: 3000,
     duration: 1000,
     index: 1,
-   
     // tab切换 
-    currentTab: 0,
-
+    currentTab: 0
   },
 
   /**
@@ -86,8 +84,5 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
-  },
- 
-
-
+  }
 })

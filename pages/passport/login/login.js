@@ -1,4 +1,4 @@
-// miniprogram/pages/login/login.js
+var WXBizDataCrypt = require('../../../modules/WXBizDataCrypt.js')
 var passport = require("../../../modules/passport.js")
 var api = require("../../../modules/api.js")
 
@@ -20,7 +20,6 @@ Page({
       }
     },
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -78,16 +77,14 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }, 
-
+  },
   //获取手机号码
-  getMobile(e) {
+  getMobile: function (e) {
     //确认
     if (e.detail.errMsg === "getPhoneNumber:ok") {
       //解密数据
       var pc = new WXBizDataCrypt(wx.getStorageSync('appId'), wx.getStorageSync('session_key'))
       var data = pc.decryptData(e.detail.encryptedData, e.detail.iv)
-
       wx.getSetting({
         success: res => {
           if (res.authSetting['scope.userInfo']) {
@@ -100,7 +97,7 @@ Page({
           }
         }
       })
-      
+
     } else {
       //隐藏授权确认框
       this.setData({ showFlag: false })

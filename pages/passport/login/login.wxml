@@ -30,10 +30,10 @@
       <view style="width:100%;position:relative;height:100rpx;border:1px solid #f1f1f1;bottom:90px;display:none;">
         <official-account></official-account>
       </view>
-      
       <view class="copy">&copy;2019 鄱阳湖农产品 版权所有</view>
     </view>
   </view>
+
   <!-- 快速登陆弹框 -->  
   <view class="toast_div {{showFlag ? 'show_toast':''}}">
       <view class="toast_c">
@@ -43,5 +43,4 @@
           <button class="fast_login" open-type="getPhoneNumber" bindgetphonenumber="getMobile" >快速登录</button>
       </view>
   </view>
-
 </view>
