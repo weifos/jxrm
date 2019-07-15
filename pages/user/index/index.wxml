@@ -6,6 +6,7 @@
       <view class="user-info__img">
         <image src="{{userInfo.img}}"></image>
       </view>
+      <view class="btn-refresh"><image src="../../../images/user/refresh.png"></image></view>
       <view class="user-info-content">
         <view class="user-info__id">
           未登录

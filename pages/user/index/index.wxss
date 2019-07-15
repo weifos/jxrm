@@ -3,6 +3,7 @@
   height: 240rpx;
   overflow: hidden;
   color: #fff;
+  position: relative;
 }
 
 .user-info__img{
@@ -12,7 +13,26 @@
   overflow: hidden;
   border-radius: 50%;
   border: 1rpx solid #fff;
+  
 }
+
+.btn-refresh{
+  width: 30rpx;
+  height: 30rpx;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  -webkit-transform:translate(18rpx,18rpx);
+  padding: 5rpx;
+}
+.btn-refresh image{
+  width: 30rpx;
+  height:30rpx;
+  vertical-align: top;
+}
+
 
 .user-info__img image{
   width: 100%;
