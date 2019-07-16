@@ -75,7 +75,7 @@ Page({
       console.log(e.detail.errMsg)
       console.log(e.detail.userInfo)
       console.log(e.detail.rawData)
-      debugger
+   
       //允许授权后获取用户信息进行保存，并上传服务器
       passport.getUserInfo()
       wx.redirectTo({

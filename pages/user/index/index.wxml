@@ -6,10 +6,10 @@
       <view class="user-info__img">
         <image src="{{userInfo.img}}"></image>
       </view>
-      <view class="btn-refresh"><image src="../../../images/user/refresh.png"></image></view>
+      <button class="btn-refresh" open-type="getUserInfo" bindgetuserinfo="getWxUser"><image src="../../../images/user/refresh.png"></image></button>
       <view class="user-info-content">
         <view class="user-info__id">
-          未登录
+          {{userInfo.login_name}}
         </view>
       </view>
       <!-- user-info e-->
@@ -30,10 +30,10 @@
     <!-- 快速登陆弹框 -->  
   <view class="toast_div {{showFlag ? 'show_toast':''}}">
       <view class="toast_c">
-        <view class="tlt_shuf">您当前未登录</view>
-        <view class="toast_shuf">点击授权快速登录</view>
+        <view class="tlt_shuf">当前未登录</view>
+        <view class="toast_shuf">点击一键授权快速登录</view>
         <!-- <view class="rules">我已同意借阅规则</view> -->
-          <button class="fast_login" open-type="getPhoneNumber" bindgetphonenumber="getMobile" >快速登录</button>
+          <button class="fast_login" open-type="getPhoneNumber" bindgetphonenumber="getMobile" >立即授权</button>
       </view>
   </view>
 

@@ -26,6 +26,7 @@
   left:50%;
   -webkit-transform:translate(18rpx,18rpx);
   padding: 5rpx;
+  box-sizing:unset;
 }
 .btn-refresh image{
   width: 30rpx;
@@ -51,7 +52,7 @@
 
 .correlation-item{
   border-bottom:1rpx solid #eee;
-  padding:50rpx 20rpx ;
+  padding:50rpx 50rpx ;
   font-size: 30rpx;
 }
 
@@ -83,7 +84,7 @@
   left: 0;
   opacity: 0;
   transition: all 250ms ease-in-out;
-  z-index: 600;
+  z-index: 600; 
 }
 
 .show_toast {

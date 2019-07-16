@@ -1,9 +1,9 @@
 //测试环境  
-//let domain = "http://ns.api.nongshang.com/"
-//let res_domain = "https://ns.res.nongshang.com/"
+let domain = "http://ns.api.nongshang.com/"
+let res_domain = "https://ns.res.nongshang.com/"
 //正式环境
-let domain = "http://ns.api.weifos.com/"
-let res_domain = "https://ns.res.weifos.com/"
+//let domain = "http://ns.api.weifos.com/"
+//let res_domain = "https://ns.res.weifos.com/"
 
 /// <summary>
 /// 全局配置类
@@ -19,10 +19,12 @@ module.exports = {
   api_101 : domain + "101",
   //获取微信wxconfig
   api_102 : domain + "102",
-  //根据Code换取SessionKey
-  api_103 : domain + "103",
-  //获取SessionKey
-  api_104 : domain + "104",
+  // 103 注册，小程序初始化微信用户 第一步 
+  api_103: domain + "103",
+  //注册，第二步绑定手机号码
+  api_104: domain + "104",
+  //第三步，小程序注册，授权完善微信用户数据 
+  api_105: domain + "105",
   //发送验证码
   api_110 : domain + "110",
   //用户登录

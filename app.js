@@ -1,25 +1,26 @@
 //身份认证脚本
 var passport = require("./modules/passport.js")
+//用户信息脚本
+var userInfo = require("./modules/userInfo.js")
+//全局工具类
+var appG = require("./modules/appGlobal.js")
+//md5加密
 var md5 = require("./modules/md5.js")
 //var md5 = require("./modules/cryptojs/lib/MD5.js")
 
 App({
   onLaunch: function() {
-    // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-    passport.AuthLogin()
+    //检查登录态是否过期
+    passport.checkSession()
   },
-  globalData: {
-    userInfo: {},
-    tostr() {
-
-    }
+  data: {
+    userInfo: userInfo
   }
 })
 
-
+/**
+ * 全局提交方式
+ */
 wx.post = function(url, data, cb, ch) {
   wx.showLoading({
     title: '请求中',
@@ -65,11 +66,9 @@ wx.post = function(url, data, cb, ch) {
 
 //获取签名
 wx.GetSign = function(obj = {}) {
-
-  let {
-    token
-  } = ''
-
+ 
+  //获取token
+  let { token } = userInfo.methods.getUser()
   function sort(obj) {
 
     if (obj instanceof Array) {
@@ -110,10 +109,11 @@ wx.GetSign = function(obj = {}) {
       IP: "",
       OS: 3,
       Sign: "",
-      Token: " "
+      Token: token
     }
   }
-
+ 
+  
   return {
     Data: obj,
     Global: {
@@ -121,8 +121,8 @@ wx.GetSign = function(obj = {}) {
       IMSI: "",
       IP: "",
       OS: 3,
-      Sign: md5.hexMD5(JSON.stringify(sort(sign_data)) + ')(4AzEdr5J6a`@#$*%'),
-      Token: ' '
+      Sign: md5.md5(JSON.stringify(sort(sign_data)) + ')(4AzEdr5J6a`@#$*%'),
+      Token: token
     }
   }
 }

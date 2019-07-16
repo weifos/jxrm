@@ -1,24 +1,21 @@
-// 公用js函数
-var api = require("./api.js") 
+var api = require("./api.js")
+var WXBizDataCrypt = require('./WXBizDataCrypt.js')
+var user = require("./userInfo.js")
 
 module.exports = {
-  //授权登录
-  AuthLogin() {
-    debugger
+  /**
+   * 检查登录态是否过期
+   */
+  checkSession() {
     let that = this;
     //检查登录
     wx.checkSession({
-      //session_key未过期，并且在本生命周期一直有效
+      //未过期
       success() {
-        //获取用户的当前设置。返回值中只会出现小程序已经向用户请求过的权限
         wx.getSetting({
           success: res => {
-            //已经授权则跳转到用户中心
-            if (res.authSetting['scope.userInfo']) {
-              wx.redirectTo({ url: '../../user/index/index' })
-            } else {
-              //隐藏授权确认框
-              //that.setData({ showFlag: false })
+            if (!wx.getStorageSync('session_key')){
+              that.wxLogin()
             }
           },
           fail: res => {
@@ -26,35 +23,32 @@ module.exports = {
           }
         })
       },
-      //session_key已经失效，需要重新执行登录流程
+      //已经过期
       fail() {
-        that.GetSessionKey()
+        that.wxLogin()
       }
     })
   },
   /**
-   * 调用小程序login方法获取Code,通过Code获取Key
+   * 用户数据初始化
    */
-  GetSessionKey() {
+  wxLogin() {
+    let wxuser = user.methods.getUser()
     wx.login({
-      success: function (res) {
+      //调用接口获取登录凭证（code），包含openid，session_key
+      success: function(res) {
         if (res.code) {
-          wx.post(api.api_103, wx.GetSign({ Code: res.code }), function (app, res) {
+          wx.post(api.api_103, wx.GetSign({
+            Code: res.code
+          }), function(app, res) {
             if (res.data.Basis.State == api.state.state_200) {
-              //获取到的SessionKey存入本地存取文件
-              //setStorage同步，setStorageSync异步
+              //session_key 写入缓存
               wx.setStorage({
                 key: "session_key",
                 data: res.data.Result.session_key
               })
-              wx.setStorage({
-                key: "openid",
-                data: res.data.Result.openid
-              })
-              wx.setStorage({
-                key: "appId",
-                data: res.data.Result.appId
-              })
+              wxuser.openid = res.data.Result.openid
+              user.methods.login(wxuser)
             } else {
               app.showToast({
                 title: '网络错误',
@@ -67,72 +61,83 @@ module.exports = {
       }
     })
   },
-  //用户授权页面
+  /**
+   * 绑定手机号码
+   */
+  bindMobile: function(e,func) {
+    var this_ = this
+    var userInfo = user.methods.getUser()
+    if (e.detail.errMsg === "getPhoneNumber:ok") {
+      //小程序appId
+      let appId = wx.getAccountInfoSync().miniProgram.appId
+      //解密数据
+      var pc = new WXBizDataCrypt(appId, wx.getStorageSync('session_key'))
+      //获取手机号码数据包
+      var wx_result = pc.decryptData(e.detail.encryptedData, e.detail.iv)
+      //获取手机号码
+      var mobile = wx_result.phoneNumber
+      //请求服务器
+      wx.post(api.api_104,
+        wx.GetSign({
+          OpenID: userInfo.openid,
+          Mobile: mobile
+        }),
+        function(app, res) {
+          if (res.data.Basis.State == api.state.state_200) {
+            userInfo.token = res.data.Result
+            userInfo.login_name = mobile
+            user.methods.login(userInfo)
+            wx.showToast({
+              title: res.data.Basis.Msg,
+              duration: 2000
+            })
+          } else {
+            wx.showToast({
+              title: res.data.Basis.Msg,
+              icon: 'none',
+              duration: 3000
+            })
+          }
+          func(res.data.Basis.State, userInfo) 
+        })
+    }
+  },
+  //获取微信用户信息
+  getWxUser(e,func) {
+    let that = this
+    var userInfo = user.methods.getUser()
+    if (e.detail.errMsg == 'getUserInfo:ok') {
+      var wxuser = {} 
+      wxuser.openid = userInfo.openid
+      wxuser.headimgurl = e.detail.userInfo.avatarUrl 
+      wxuser.nickname = e.detail.userInfo.nickName 
+      wx.post(api.api_105, wx.GetSign({ WeChatUser:wxuser}),
+        function (app, res) {
+          if (res.data.Basis.State == api.state.state_200) {
+            userInfo.img = wxuser.headimgurl
+            userInfo.nickname = wxuser.nickname
+            user.methods.login(userInfo)
+            wx.showToast({
+              title: res.data.Basis.Msg,
+              duration: 2000
+            })
+          } else {
+            wx.showToast({
+              title: res.data.Basis.Msg,
+              icon: 'none',
+              duration: 3000
+            })
+          }
+          func(res.data.Basis.State, e.detail.userInfo)
+        })
+    }  
+  },
+  /**
+   * 用户授权页面
+   */
   toAuth() {
     wx.redirectTo({
       url: '../../passport/authorize/authorize'
-    })
-  },
-  //获取用户信息
-  getUserInfo() {
-    //获取用户信息，获取之前是否已经授权
-    wx.getSetting({
-      success: res => {
-debugger
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: function (res) {
-              var userInfo = res.userInfo
-              var pc = new WXBizDataCrypt(wx.getStorageSync('appId'), wx.getStorageSync('session_key'))
-              var data = pc.decryptData(res.encryptedData, res.iv)
-              wx.setStorage({
-                key: "userInfo",
-                data: userInfo
-              })
-              userInfoSetInSQL(userInfo)
-            },
-            fail: function () {
-
-            }
-          })
-        } else {
-          toAuth()
-        }
-      }
-    })
-  },
-  //获取
-  userInfoSetInSQL() {
-    wx.getStorage({
-      key: 'third_Session',
-      success: function (res) {
-        console.log(res)
-        // 后台存储用户信息
-        wx.post(
-          url,
-          wx.GetSign({
-            third_Session: res.data,
-            nickName: userInfo.nickName,
-            avatarUrl: userInfo.avatarUrl,
-            gender: userInfo.gender,
-            province: userInfo.province,
-            city: userInfo.city,
-            country: userInfo.country
-          }),
-          function (app, res) {
-            console.log(res, "---请求结果")
-            if (res.data.Basis.State == api.state.state_200) {
-              //后台更新用户数据成功
-            } else {
-              app.showToast({
-                title: '网络错误',
-                icon: 'none',
-                duration: 3000
-              })
-            }
-          });
-      }
     })
   }
 }
