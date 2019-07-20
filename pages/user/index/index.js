@@ -17,16 +17,16 @@ Page({
    */
   onLoad: function(e) {
     var user = app.data.userInfo.methods.getUser()
-    if (user.token){
+    if (user.token) {
       this.setData({
         ['userInfo.login_name']: appG.util.getHideMobile(user.login_name)
-      })   
+      })
       if (user.img) {
         this.setData({
           ['userInfo.img']: user.img
-        })   
+        })
       }
-    }else{
+    } else {
       //弹出用户登录
       this.setData({
         showFlag: true
@@ -38,7 +38,7 @@ Page({
    */
   getMobile: function(e) {
     let that = this
-    passport.bindMobile(e, function(code,user) {
+    passport.bindMobile(e, function(code, user) {
       if (code == api.state.state_200) {
         that.setData({
           showFlag: false
@@ -47,11 +47,11 @@ Page({
           ['userInfo.login_name']: appG.util.getHideMobile(user.login_name)
         })
       }
-       
+
       wx.getStorage({
         key: 'returl',
         success(res) {
-          if (res.data){
+          if (res.data) {
             wx.navigateTo({
               url: res.data
             })
@@ -65,22 +65,30 @@ Page({
   /**
    * 加载微信用户信息
    */
-  getWxUser: function (e) {
+  getWxUser: function(e) {
     let that = this
-    passport.getWxUser(e, function (code,user){
+    passport.getWxUser(e, function(code, user) {
       if (code == api.state.state_200) {
         that.setData({
           ['userInfo.img']: appG.util.getHideMobile(user.avatarUrl)
-        }) 
-      } 
+        })
+      }
     })
   },
   /**
-   * 立即收藏
+   * 收藏店铺
    */
-  bindCollectClick: function() {
+  goStoreCollect: function() {
     wx.navigateTo({
-      url: '../../collect/collect',
+      url: '../userCollect/storeCollect/storeCollect',
+    })
+  },
+  /**
+   * 收藏商品
+   */
+  goProductCollect: function() {
+    wx.navigateTo({
+      url: '../userCollect/productCollect/productCollect',
     })
   }
 })

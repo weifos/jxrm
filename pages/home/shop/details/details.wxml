@@ -1,0 +1,43 @@
+<!--pages/shop/shop.wxml-->
+<view class="container page-shop">
+  <view class="content">
+    <view class="content_div">
+      <view class="shop-info">
+        <view class="shop-info__name">
+          {{shopInfo.name}}
+        </view>
+        <view class="hidden">
+          <view class="shop-info__img">
+            <image src="{{shopInfo.imgurl}}" alt=""></image>
+          </view>
+          <view class="shop-info__desc">
+            {{shopInfo.business_scope}}
+          </view>
+        </view>
+      </view>
+
+      <!-- c_main s -->
+      <view class="c_main">
+        <scroll-view class="product-list" >
+          <view class="product-item" wx:for="{{products}}" wx:key="key" bindtap="goProductDetails" data-id="{{item.id}}" data-sid="{{item.store_id}}">
+            <view class="product-item__img">
+              <image src="{{item.img_url}}"></image>
+            </view>
+            <view class="tac">
+              <view class="product-item__name dib mr5 vat">
+                {{item.name}}
+              </view>
+              <view class="product-item__price dib vat">
+                <text class="color-red">{{item.sale_price}}</text>元/{{item.unit}}
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <!-- c_main e -->
+    </view>
+  </view>
+  <!-- 导航 s -->
+  <navBar></navBar>
+  <!-- 导航 e -->
+</view>

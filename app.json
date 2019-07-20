@@ -4,10 +4,11 @@
     "pages/passport/login/login",
     "pages/home/productDetail/productDetail",
     "pages/user/index/index",
-    "pages/resultList/resultList",
-    "pages/search/search",
     "pages/passport/authorize/authorize",
-    "pages/collect/collect"
+    "pages/user/userCollect/productCollect/productCollect",
+    "pages/user/userCollect/storeCollect/storeCollect",
+    "pages/home/shop/details/details",
+    "pages/home/shop/catgList/catgList"
   ],
   "window": {
     "backgroundColor": "#fff",

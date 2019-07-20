@@ -16,10 +16,10 @@
     </view>
       <view class="user-correlation">
         <view class="correlation-list">
-             <view class="correlation-item" bindtap="bindCollectClick">
+             <view class="correlation-item" bindtap="goStoreCollect">
               <image alt="" class="icon icon-collect" src="../../../images/user/collect.png"></image><text class="dib vam">收藏的店铺</text>
              </view>
-             <view class="correlation-item" bindtap="bindCollectClick">
+             <view class="correlation-item" bindtap="goProductCollect">
              <image alt="" class="icon icon-collect" src="../../../images/user/collect2.png"></image>
               <text class="dib vam">收藏的商品</text>
              </view>

@@ -51,6 +51,13 @@ Page({
   },
 
   /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function(e) {
@@ -69,17 +76,12 @@ Page({
   goStore: function(event) {
     let id = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../../../pages/shop/shop?id=' + id,
+      url: '../shop/details/details?id=' + id,
     })
   },
-
   /**
-   * 用户点击右上角分享
+   * 加载首页数据
    */
-  onShareAppMessage: function() {
-
-  },
-  //获取验证码
   api_200: function() {
     var this_ = this;
     wx.post(api.api_200, wx.GetSign(), function(app, res) {

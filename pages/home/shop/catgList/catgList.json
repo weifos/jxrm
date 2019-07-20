@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "enablePullDownRefresh": true,
+  "onPullDownRefresh": true,
+  "onReachBottom": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar"
+  }
+}
