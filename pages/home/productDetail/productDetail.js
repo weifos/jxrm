@@ -35,6 +35,7 @@ Page({
       ['store.id']: opt.sid,
       ['product.id']: opt.id
     })
+     
     this.api_203(opt)
     this.api_301(opt)
   },
@@ -91,8 +92,9 @@ Page({
    * 拨打电话
    */
   calling: function() {
+    var that = this
     wx.makePhoneCall({
-      phoneNumber: '***************',
+      phoneNumber: that.data.store.phone,
       success: function() {},
       fail: function() {
         console.log("拨打电话失败！")
@@ -143,6 +145,10 @@ Page({
         this_.setData({
           imgs: res.data.Result.imgs,
           product: res.data.Result.product,
+        })
+          
+        this_.setData({
+          store: res.data.Result.store
         })
       }
     })

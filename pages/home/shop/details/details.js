@@ -18,6 +18,7 @@ Component({
     shopInfo: {
       id: 0,
       name: '-',
+      phone:'-',
       img_url: '../../images/index/i1.jpg',
       business_scope: '-'
     },
