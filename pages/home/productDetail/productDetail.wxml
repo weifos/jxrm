@@ -44,10 +44,10 @@
     </view>
   </view>
   <view class="detail-tool-bar">
-    <view class="phone">
-     拨打电话：010-00987787
+    <view class="phone" bindtap="calling">
+     拨打电话：{{store.phone}}
     </view>
-    <view class="{{collected==1 ? 'product-info__collect collected' : 'product-info__collect'}}" bindtap='bindCollectClick'>
+    <view class="{{collected==1 ? 'product-info__collect collected' : 'product-info__collect'}}" bindtap='collection'>
       <text class="i-collect vam dib"></text>
       <text class="vam dib">收藏</text>
     </view>

@@ -15,8 +15,7 @@ Page({
   /**
    * 页面加载事件
    */
-  onLoad: function() {
-    
+  onLoad: function(e) {
     var user = app.data.userInfo.methods.getUser()
     if (user.token){
       this.setData({
@@ -48,6 +47,19 @@ Page({
           ['userInfo.login_name']: appG.util.getHideMobile(user.login_name)
         })
       }
+       
+      wx.getStorage({
+        key: 'returl',
+        success(res) {
+          if (res.data){
+            wx.navigateTo({
+              url: res.data
+            })
+          }
+          wx.removeStorageSync('returl')
+        }
+      })
+
     })
   },
   /**
@@ -61,7 +73,6 @@ Page({
           ['userInfo.img']: appG.util.getHideMobile(user.avatarUrl)
         }) 
       } 
-
     })
   },
   /**

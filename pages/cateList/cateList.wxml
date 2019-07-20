@@ -19,7 +19,7 @@
             <view class="classify-list">
               <view class="classify-item">
                 <view class="classify-main__list">
-                  <view class="`classify-main__list-item {{item.id == catgId ? 'cur' : ''}}`" data-id="{{item.id}}"  bindtap='selectCatg' wx:for="{{cateList}}" wx:for-item="item" wx:key="key">
+                  <view class="`classify-main__list-item {{item.id == catgId ? 'cur' : ''}}`" data-id="{{item.id}}" data-sid="{{item.store_id}}"  bindtap='selectCatg' wx:for="{{cateList}}" wx:for-item="item" wx:key="key">
                     {{item.name}}
                   </view>
                 </view>

@@ -502,16 +502,37 @@ module.exports = {
       return decodeURIComponent(encoded)
     },
     //本地文件转成base64
-    fileToBase64: function() {
+    fileToBase64: function () {
       return new Promise((resolve, reject) => {
         const reader = new FileReader()
         reader.readAsDataURL(file)
-        reader.onload = function() {
+        reader.onload = function () {
           // 图片转base64完成后返回reader对象
           resolve(reader)
         }
         reader.onerror = reject
       })
+    },
+    //获取当前路径
+    getPath: function () {
+      debugger
+      var pages = getCurrentPages()
+      var currentPage = pages[pages.length - 1]
+      return currentPage.route
+    },
+    //获取当前完整路径
+    getUrl: function () {
+      const pages = getCurrentPages()
+      const currentPage = pages[pages.length - 1]
+      const url = currentPage.route
+      const options = currentPage.options
+      let urlWithArgs = `/${url}?`
+      for (let key in options) {
+        const value = options[key]
+        urlWithArgs += `${key}=${value}&`
+      }
+      urlWithArgs = urlWithArgs.substring(0, urlWithArgs.length - 1)
+      return urlWithArgs
     },
     //隐藏手机
     getHideMobile: function(tel) {

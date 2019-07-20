@@ -6,7 +6,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
   },
 
   /**
@@ -19,7 +18,7 @@ Component({
     shopInfo: {
       id: 0,
       name: '-',
-      imgurl: '../../images/index/i1.jpg',
+      img_url: '../../images/index/i1.jpg',
       business_scope: '-'
     },
     pager: {
@@ -63,8 +62,9 @@ Component({
     //查看商品详情
     goProductDetails(event) {
       let id = event.currentTarget.dataset.id
+      let sid = event.currentTarget.dataset.sid
       wx.navigateTo({
-        url: '../home/productDetail/productDetail?id=' + id
+        url: '../home/productDetail/productDetail?id=' + id+'&sid='+sid
       })
     },
     //加载店铺详情
@@ -89,7 +89,6 @@ Component({
     //加载店铺商品
     api_202: function() {
       var this_ = this
-
       wx.post(api.api_202, wx.GetSign({
         ID: this_.data.sid,
         Size: this_.data.pager.size,
@@ -117,6 +116,7 @@ Component({
           res.data.Result.forEach(function (o, i) {
             this_.data.products.push(o)
           })
+
           this_.setData({
             products: this_.data.products
           })

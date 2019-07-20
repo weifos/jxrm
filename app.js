@@ -36,13 +36,18 @@ wx.post = function(url, data, cb, ch) {
     },
     success: (res) => {
       wx.hideLoading()
-      if (res.data.Basis != undefined && res.data.Basis.State == 205) {
+      if (res.data.Basis != undefined && res.data.Basis.State == 205 || res.data.Basis.State == 211) {
         wx.showToast({
           title: res.data.Basis.Msg,
           icon: 'none',
           duration: 3000
         })
-        //router.push({ path: "/passport/login" })
+
+        var pages = appG.util.getUrl()
+        wx.setStorageSync("returl", pages)
+        wx.navigateTo({
+          url: "/pages/user/index/index",
+        })
       } else {
         cb(this, res)
       }
@@ -52,7 +57,7 @@ wx.post = function(url, data, cb, ch) {
         wx.hideLoading()
       }, 2000)
       wx.showToast({
-        title: '网络错误',
+        title: JSON.stringify(res),
         icon: 'none',
         duration: 3000
       })
@@ -66,9 +71,12 @@ wx.post = function(url, data, cb, ch) {
 
 //获取签名
 wx.GetSign = function(obj = {}) {
- 
+
   //获取token
-  let { token } = userInfo.methods.getUser()
+  let {
+    token
+  } = userInfo.methods.getUser()
+
   function sort(obj) {
 
     if (obj instanceof Array) {
@@ -112,8 +120,8 @@ wx.GetSign = function(obj = {}) {
       Token: token
     }
   }
- 
-  
+
+
   return {
     Data: obj,
     Global: {
@@ -126,4 +134,3 @@ wx.GetSign = function(obj = {}) {
     }
   }
 }
- 

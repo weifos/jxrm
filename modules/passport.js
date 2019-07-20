@@ -102,7 +102,9 @@ module.exports = {
         })
     }
   },
-  //获取微信用户信息
+  /**
+   * 获取小程序用户信息
+   */
   getWxUser(e,func) {
     let that = this
     var userInfo = user.methods.getUser()

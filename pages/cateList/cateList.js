@@ -14,14 +14,14 @@ Component({
     autoplay: true,
     interval: 3000,
     duration: 1000,
-    catgId:0,
+    catgId: 0,
     stores: [],
     cateList: [],
     cateContent: [],
     pager: {
       size: 6,
       index: 0,
-      keyWord:'',
+      keyWord: '',
       loadComplete: false,
       loading: false
     }
@@ -34,7 +34,7 @@ Component({
     /**
      * 绑定查询关键词
      */
-    bindKeyWord: function (e) {
+    bindKeyWord: function(e) {
       this.setData({
         ['pager.keyWord']: e.detail.value
       })
@@ -52,7 +52,7 @@ Component({
     /**
      * 选择分类
      */
-    selectCatg: function (event) {
+    selectCatg: function(event) {
       let id = event.currentTarget.dataset.id
       this.setData({
         catgId: id
@@ -62,12 +62,12 @@ Component({
     /**
      * 查看门店详情
      */
-    goStore: function (event) {
-      let id = event.currentTarget.dataset.id
+    goStore: function(event) {
+      let id = event.currentTarget.dataset.id 
       wx.navigateTo({
-        url: '../home/productDetail/productDetail?id=' + id,
+        url: '../shop/shop?id=' + id,
       })
-    }, 
+    },
     /**
      * 查询
      */
@@ -77,7 +77,7 @@ Component({
       })
       this.setData({
         ['pager.loadComplete']: false
-      }) 
+      })
       this.setData({
         stores: []
       })
@@ -105,7 +105,7 @@ Component({
           })
         } else {
           //获取默认类别ID
-          if (res.data.Result[0].catgs.length > 0){
+          if (res.data.Result[0].catgs.length > 0) {
             this_.setData({
               catgId: res.data.Result[0].catgs[0].id
             })
@@ -140,7 +140,7 @@ Component({
           if (res.data.Result.length == 0) {
             this_.setData({
               ['pager.loadComplete']: true
-            }) 
+            })
             wx.showToast({
               title: '加载完成',
               icon: 'success',
@@ -148,7 +148,7 @@ Component({
             })
           }
 
-          res.data.Result.forEach(function (o, i) {
+          res.data.Result.forEach(function(o, i) {
             this_.data.stores.push(o)
           })
           this_.setData({
