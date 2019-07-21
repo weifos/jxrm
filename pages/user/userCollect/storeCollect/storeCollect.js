@@ -2,7 +2,6 @@ var api = require("../../../../modules/api.js")
 var router = require("../../../../modules/router.js")
 
 Page({
-
   /**
    * 页面的初始数据
    */

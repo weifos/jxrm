@@ -1,4 +1,3 @@
-<!--pages/collect/collect.wxml-->
 <view class="container page-collect">
   <scroll-view class="content" bindscrolltolower="scroll" scroll-y="true">
     <!-- product-list s -->

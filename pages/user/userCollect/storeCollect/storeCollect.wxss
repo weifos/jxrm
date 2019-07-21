@@ -1,5 +1,3 @@
-/* pages/collect/collect.wxss */
-
 .page-collect {
   position: fixed;
   height: 100%;
