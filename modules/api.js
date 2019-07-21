@@ -25,6 +25,8 @@ module.exports = {
   api_104: domain + "104",
   //第三步，小程序注册，授权完善微信用户数据 
   api_105: domain + "105",
+  //加载用户数据
+  api_106: domain + "106",
   //发送验证码
   api_110 : domain + "110",
   //用户登录

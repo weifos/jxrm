@@ -6,16 +6,20 @@ module.exports = {
   /**
    * 检查登录态是否过期
    */
-  checkSession() {
-    let that = this;
+  checkSession(func) {
+    let that = this
+    //获取用户信息
+    let userInfo = user.methods.getUser() 
     //检查登录
     wx.checkSession({
       //未过期
       success() {
         wx.getSetting({
           success: res => {
-            if (!wx.getStorageSync('session_key')){
-              that.wxLogin()
+            if (!wx.getStorageSync('session_key') || !userInfo.openid) {
+              that.wxLogin(func)
+            }else{
+              func(userInfo.openid)
             }
           },
           fail: res => {
@@ -25,14 +29,14 @@ module.exports = {
       },
       //已经过期
       fail() {
-        that.wxLogin()
+        that.wxLogin(func)
       }
     })
   },
   /**
    * 用户数据初始化
    */
-  wxLogin() {
+  wxLogin(func) {
     let wxuser = user.methods.getUser()
     wx.login({
       //调用接口获取登录凭证（code），包含openid，session_key
@@ -49,6 +53,7 @@ module.exports = {
               })
               wxuser.openid = res.data.Result.openid
               user.methods.login(wxuser)
+              func(res.data.Result.openid)
             } else {
               app.showToast({
                 title: '网络错误',
@@ -56,7 +61,7 @@ module.exports = {
                 duration: 5000
               })
             }
-          });
+          })
         }
       }
     })
@@ -64,7 +69,7 @@ module.exports = {
   /**
    * 绑定手机号码
    */
-  bindMobile: function(e,func) {
+  bindMobile: function(e, func) {
     var this_ = this
     var userInfo = user.methods.getUser()
     if (e.detail.errMsg === "getPhoneNumber:ok") {
@@ -98,23 +103,25 @@ module.exports = {
               duration: 3000
             })
           }
-          func(res.data.Basis.State, userInfo) 
+          func(res.data.Basis.State, userInfo)
         })
     }
   },
   /**
    * 获取小程序用户信息
    */
-  getWxUser(e,func) {
+  getWxUser(e, func) {
     let that = this
     var userInfo = user.methods.getUser()
     if (e.detail.errMsg == 'getUserInfo:ok') {
-      var wxuser = {} 
+      var wxuser = {}
       wxuser.openid = userInfo.openid
-      wxuser.headimgurl = e.detail.userInfo.avatarUrl 
-      wxuser.nickname = e.detail.userInfo.nickName 
-      wx.post(api.api_105, wx.GetSign({ WeChatUser:wxuser}),
-        function (app, res) {
+      wxuser.headimgurl = e.detail.userInfo.avatarUrl
+      wxuser.nickname = e.detail.userInfo.nickName
+      wx.post(api.api_105, wx.GetSign({
+          WeChatUser: wxuser
+        }),
+        function(app, res) {
           if (res.data.Basis.State == api.state.state_200) {
             userInfo.img = wxuser.headimgurl
             userInfo.nickname = wxuser.nickname
@@ -132,7 +139,7 @@ module.exports = {
           }
           func(res.data.Basis.State, e.detail.userInfo)
         })
-    }  
+    }
   },
   /**
    * 用户授权页面

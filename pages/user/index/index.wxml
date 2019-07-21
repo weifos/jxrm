@@ -4,7 +4,7 @@
     <!-- user-info s -->
     <view class="user-info hidden">
       <view class="user-info__img">
-        <image src="{{userInfo.img}}"></image>
+        <image src="{{userInfo.headimgurl}}"></image>
       </view>
       <button class="btn-refresh" open-type="getUserInfo" bindgetuserinfo="getWxUser"><image src="../../../images/user/refresh.png"></image></button>
       <view class="user-info-content">

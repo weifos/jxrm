@@ -11,7 +11,7 @@ var md5 = require("./modules/md5.js")
 App({
   onLaunch: function() {
     //检查登录态是否过期
-    passport.checkSession()
+    passport.checkSession(()=>{})
   },
   data: {
     userInfo: userInfo
