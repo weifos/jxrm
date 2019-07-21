@@ -1,9 +1,9 @@
 //测试环境  
-//let domain = "http://ns.api.nongshang.com/"
-//let res_domain = "https://ns.res.nongshang.com/"
+let domain = "http://ns.api.nongshang.com/"
+let res_domain = "https://ns.res.nongshang.com/"
 //正式环境
-let domain = "http://ns.api.weifos.com/"
-let res_domain = "https://ns.res.weifos.com/"
+//let domain = "http://ns.api.weifos.com/"
+//let res_domain = "https://ns.res.weifos.com/"
 
 /// <summary>
 /// 全局配置类

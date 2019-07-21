@@ -42,7 +42,9 @@ wx.post = function(url, data, cb, ch) {
           icon: 'none',
           duration: 3000
         })
-
+        
+        //删除用户信息
+        wx.removeStorageSync('user_info')
         var pages = appG.util.getUrl()
         wx.setStorageSync("returl", pages)
         wx.navigateTo({
@@ -71,7 +73,6 @@ wx.post = function(url, data, cb, ch) {
 
 //获取签名
 wx.GetSign = function(obj = {}) {
-
   //获取token
   let {
     token
