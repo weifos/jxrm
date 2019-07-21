@@ -49,3 +49,14 @@
   width: 100%;
   text-align: center;
 }
+.nodata{
+  text-align: center;
+  font-size:28rpx;
+  color:#cdcdcd;
+}
+.nodata image{
+  width: 100rpx;
+  height: 100rpx;
+  margin:40% auto 20rpx auto;
+  display: inline-block；
+}

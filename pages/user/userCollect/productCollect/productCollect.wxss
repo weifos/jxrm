@@ -1,8 +1,8 @@
 /* pages/collect/collect.wxss */
-
 .page-collect {
   position: fixed;
   height: 100%;
+  width: 100%;
 }
 .content {
   overflow-y: auto;
@@ -48,4 +48,16 @@
   height: 40rpx;
   width: 100%;
   text-align: center;
+}
+
+.nodata{
+  text-align: center;
+  font-size:28rpx;
+  color:#cdcdcd;
+}
+.nodata image{
+  width: 100rpx;
+  height: 100rpx;
+  margin:40% auto 20rpx auto;
+  display: inline-block；
 }

@@ -6,12 +6,16 @@
         <view class="shop-info__name">
           {{shopInfo.name}}
         </view>
-        <view class="hidden">
+        <view class="hidden rel">
           <view class="shop-info__img">
             <image src="{{shopInfo.imgurl}}" alt=""></image>
           </view>
           <view class="shop-info__desc">
             {{shopInfo.business_scope}}
+          </view>
+          <view class="{{collected==1 ? 'info__collect collected' : 'info__collect'}}" >
+            <text class="i-collect vam dib"></text>
+            <text class="vam dib">收藏</text>
           </view>
         </view>
       </view>

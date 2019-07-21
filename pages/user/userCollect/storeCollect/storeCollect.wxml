@@ -1,8 +1,8 @@
 <!--pages/collect/collect.wxml-->
 <view class="container page-collect">
-  <scroll-view  class="content" bindscrolltolower="scroll" scroll-y="true">
+  <scroll-view class="content" bindscrolltolower="scroll" scroll-y="true">
     <!-- product-list s -->
-    <view class="product-list" >
+    <view class="product-list">
       <view class="product-item" data-sid="{{item.store_id}}" wx:for="{{list}}" wx:key="key" bindtap="goProductDetails" data-id="{{item.biz_id}}">
         <view class="product-item__img">
           <image src="{{item.img_url}}"></image>
@@ -16,6 +16,12 @@
     </view>
     <!-- product-list e -->
   </scroll-view>
+
+  <view class='nodata' wx:if="{{list.length == 0}}">
+    <image src="../../../../images/index/nodata.png"></image>
+    <view>暂无数据</view>
+  </view>
+
   <!-- 导航 s -->
   <navBar></navBar>
   <!-- 导航 e -->
