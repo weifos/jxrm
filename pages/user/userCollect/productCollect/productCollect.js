@@ -1,4 +1,5 @@
 var api = require("../../../../modules/api.js")
+var router = require("../../../../modules/router.js")
 
 Page({
 
@@ -75,7 +76,7 @@ Page({
   goProductDetails(event) {
     let id = event.currentTarget.dataset.id
     let sid = event.currentTarget.dataset.sid
-    wx.navigateTo({
+    router.goUrl({
       url: '../../productDetail/productDetail?id=' + id + '&sid=' + sid
     })
   },
@@ -93,8 +94,7 @@ Page({
   goProductDetails(e) {
     let id = e.currentTarget.dataset.id
     let sid = e.currentTarget.dataset.sid
-    
-    wx.navigateTo({
+    router.goUrl({
       url: '../../../home/productDetail/productDetail?id=' + id + '&sid=' + sid
     })
   },
