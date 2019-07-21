@@ -1,4 +1,5 @@
 var api = require("../../../modules/api.js")
+var router = require("../../../modules/router.js")
 Page({
 
   /**
@@ -75,7 +76,7 @@ Page({
    */
   goStore: function(event) {
     let id = event.currentTarget.dataset.id
-    wx.navigateTo({
+    router.goUrl({
       url: '../shop/details/details?id=' + id,
     })
   },

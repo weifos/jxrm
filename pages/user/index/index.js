@@ -2,6 +2,7 @@ var api = require("../../../modules/api.js")
 var appG = require("../../../modules/appGlobal.js")
 var passport = require("../../../modules/passport.js")
 var user = require("../../../modules/userInfo.js")
+var router = require("../../../modules/router.js")
 var app = getApp()
 
 Page({
@@ -47,7 +48,7 @@ Page({
         key: 'returl',
         success(res) {
           if (res.data) {
-            wx.navigateTo({
+            router.goUrl({
               url: res.data
             })
           }
@@ -118,7 +119,7 @@ Page({
    * 收藏店铺
    */
   goStoreCollect: function() {
-    wx.navigateTo({
+    router.goUrl({
       url: '../userCollect/storeCollect/storeCollect',
     })
   },
@@ -126,7 +127,7 @@ Page({
    * 收藏商品
    */
   goProductCollect: function() {
-    wx.navigateTo({
+    router.goUrl({
       url: '../userCollect/productCollect/productCollect',
     })
   }

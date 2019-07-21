@@ -6,6 +6,8 @@ var userInfo = require("./modules/userInfo.js")
 var appG = require("./modules/appGlobal.js")
 //md5加密
 var md5 = require("./modules/md5.js")
+//md5加密
+var router = require("./modules/router.js")
 //var md5 = require("./modules/cryptojs/lib/MD5.js")
 
 App({
@@ -42,12 +44,12 @@ wx.post = function(url, data, cb, ch) {
           icon: 'none',
           duration: 3000
         })
-        
+
         //删除用户信息
         wx.removeStorageSync('user_info')
         var pages = appG.util.getUrl()
         wx.setStorageSync("returl", pages)
-        wx.navigateTo({
+        router.goUrl({
           url: "/pages/user/index/index",
         })
       } else {

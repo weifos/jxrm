@@ -1,14 +1,14 @@
 <!--components/navBar/navBar.wxml-->
 <view class="nav">
-  <navigator url="/pages/home/index/index" >
+  <navigator open-type="reLaunch" url="/pages/home/index/index" >
     <image src="../../images/nav/home.png" alt=""></image>
     <text>首页</text>
   </navigator>
-  <navigator url="/pages/home/shop/catgList/catgList" >
+  <navigator open-type="reLaunch" url="/pages/home/shop/catgList/catgList" >
     <image src="../../images/nav/index.png" alt=""></image>
     <text>分类</text>
   </navigator>
-  <navigator url="/pages/user/index/index" >
+  <navigator open-type="reLaunch" url="/pages/user/index/index" >
     <image src="../../images/nav/user.png" alt=""></image>
     <text>我的</text>
   </navigator>
