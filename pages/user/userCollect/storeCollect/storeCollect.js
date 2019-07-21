@@ -1,18 +1,26 @@
-// pages/user/userCollect/storeCollect/storeCollect.js
+var api = require("../../../../modules/api.js")
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: [],
+    pager: {
+      size: 8,
+      index: 0,
+      keyWord: '',
+      loadComplete: false,
+      loading: false
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (opt) {
+    
   },
 
   /**
@@ -62,5 +70,58 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //查看商品详情
+  goProductDetails(event) {
+    let id = event.currentTarget.dataset.id
+    let sid = event.currentTarget.dataset.sid
+    wx.navigateTo({
+      url: '../../productDetail/productDetail?id=' + id + '&sid=' + sid
+    })
+  },
+  /**
+   * 滚动事件
+   */
+  scroll: function (e) {
+    if (!this.data.pager.loading && !this.data.pager.loadComplete) {
+      this.data.pager.loading = true
+      this.data.pager.index++
+      this.api_303()
+    }
+  },
+  //查看商品详情
+  goProductDetails(e) {
+    let id = e.currentTarget.dataset.id
+    let sid = e.currentTarget.dataset.sid
+
+    wx.navigateTo({
+      url: '../../../home/productDetail/productDetail?id=' + id + '&sid=' + sid
+    })
+  },
+  /**
+   * 用户收藏列表
+   */
+  api_303: function () {
+    var this_ = this;
+    wx.post(api.api_303, wx.GetSign({
+      BizType: 0,
+      Size: this_.data.pager.size,
+      Index: this_.data.pager.index
+    }), function (app, res) {
+      if (res.data.Basis.State != api.state.state_200) {
+        wx.showToast({
+          title: res.data.Basis.Msg,
+          icon: 'none',
+          duration: 3000
+        })
+      } else {
+        res.data.Result.forEach(function (o, i) {
+          this_.data.list.push(o)
+        })
+        this_.setData({
+          list: this_.data.list
+        })
+      }
+    });
   }
 })

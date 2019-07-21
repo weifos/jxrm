@@ -1,2 +1,22 @@
-<!--pages/user/userCollect/storeCollect/storeCollect.wxml-->
-<text>pages/user/userCollect/storeCollect/storeCollect.wxml</text>
+<!--pages/collect/collect.wxml-->
+<view class="container page-collect">
+  <scroll-view  class="content" bindscrolltolower="scroll" scroll-y="true">
+    <!-- product-list s -->
+    <view class="product-list" >
+      <view class="product-item" data-sid="{{item.store_id}}" wx:for="{{list}}" wx:key="key" bindtap="goProductDetails" data-id="{{item.biz_id}}">
+        <view class="product-item__img">
+          <image src="{{item.img_url}}"></image>
+        </view>
+        <view class="tac">
+          <view class="product-item__name dib mr5 vat">
+            {{item.name}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- product-list e -->
+  </scroll-view>
+  <!-- 导航 s -->
+  <navBar></navBar>
+  <!-- 导航 e -->
+</view>
