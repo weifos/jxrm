@@ -28,3 +28,16 @@
   margin-bottom: 6rpx;
   margin-top:6rpx;
 }
+
+navigator.cur{
+  color:#069e40
+}
+navigator .cur_icon{
+  display: none;
+}
+navigator.cur .default_icon{
+  display: none;
+}
+navigator.cur .cur_icon{
+  display: inline-block;
+}

@@ -1,15 +1,18 @@
 <!--components/navBar/navBar.wxml-->
 <view class="nav">
-  <navigator open-type="reLaunch" url="/pages/home/index/index" >
-    <image src="../../images/nav/home.png" alt=""></image>
+  <navigator class="cur" hover-class="none" open-type="reLaunch" url="/pages/home/index/index" >
+    <image src="../../images/nav/home.png" alt="" class="default_icon"></image>
+    <image src="../../images/nav/home_c.png" alt="" class="cur_icon"></image>
     <text>首页</text>
   </navigator>
-  <navigator open-type="reLaunch" url="/pages/home/shop/catgList/catgList" >
-    <image src="../../images/nav/index.png" alt=""></image>
+  <navigator hover-class="none" open-type="reLaunch" url="/pages/home/shop/catgList/catgList" >
+    <image src="../../images/nav/index.png" alt="" class="default_icon"></image>
+    <image src="../../images/nav/index_c.png" alt="" class="cur_icon"></image>
     <text>分类</text>
   </navigator>
-  <navigator open-type="reLaunch" url="/pages/user/index/index" >
-    <image src="../../images/nav/user.png" alt=""></image>
+  <navigator hover-class="none" open-type="reLaunch" url="/pages/user/index/index" >
+    <image src="../../images/nav/user.png" alt="" class="default_icon"></image>
+    <image src="../../images/nav/user_c.png" alt="" class="cur_icon"></image>
     <text>我的</text>
   </navigator>
 </view>
