@@ -50,15 +50,7 @@
 .shop-info__desc{
   font-size:30rpx;
   width: 420rpx;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  height: 210rpx;
-=======
   height: 220rpx;
->>>>>>> 1
-=======
-  height: 220rpx;
->>>>>>> 1
   overflow: hidden;
 }
 
