@@ -1,5 +1,8 @@
 /* pages/home/productDetail/productDetail.wxss */
 @import "../../../modules/wxParse/wxParse.wxss";
+swiper{
+  height: 550rpx;
+}
 .product-info{
   padding: 20rpx;
 }
