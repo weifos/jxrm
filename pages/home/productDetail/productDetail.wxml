@@ -8,7 +8,7 @@
         <swiper class="banner" indicator-dots="{{product.introduction}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
           <block wx:for="{{imgs}}" wx:key="key">
             <swiper-item>
-              <image src="{{item}}" class="slide-image" style="height:366rpx;width:100%;" />
+              <image src="{{item}}" class="slide-image" style="height:450rpx;width:100%;" />
             </swiper-item>
           </block>
         </swiper>
@@ -47,7 +47,7 @@
     <view class="phone" bindtap="calling">
      拨打电话：{{store.phone}}
     </view>
-    <view class="{{collected==1 ? 'product-info__collect collected' : 'product-info__collect'}}" bindtap='collection'>
+    <view class="product-info__collect {{collected==1 ? 'collected' : ''}}" bindtap='collection'>
       <text class="i-collect vam dib"></text>
       <text class="vam dib">收藏</text>
     </view>

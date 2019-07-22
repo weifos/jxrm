@@ -1,19 +1,19 @@
-<!--pages/shop/shop.wxml-->
+<!--pages/shop/store.wxml-->
 <view class="container page-shop">
   <view class="content">
     <view class="content_div">
       <view class="shop-info">
         <view class="shop-info__name">
-          {{shopInfo.name}}
+          {{store.name}}
         </view>
         <view class="hidden rel">
           <view class="shop-info__img">
-            <image src="{{shopInfo.imgurl}}" alt=""></image>
+            <image src="{{store.imgurl}}" alt=""></image>
           </view>
           <view class="shop-info__desc">
-            {{shopInfo.business_scope}}
+            {{store.business_scope}}
           </view>
-          <view class="{{collected==1 ? 'info__collect collected' : 'info__collect'}}" >
+          <view class="{{collected==1 ? 'info__collect collected' : 'info__collect'}}" bindtap='collection' >
             <text class="i-collect vam dib"></text>
             <text class="vam dib">收藏</text>
           </view>
