@@ -50,7 +50,7 @@
 .shop-info__desc{
   font-size:32rpx;
   width: 420rpx;
-  height: 200rpx;
+  height: 220rpx;
   overflow: hidden;
 }
 
