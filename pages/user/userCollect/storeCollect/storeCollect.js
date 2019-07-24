@@ -20,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
-    
+    this.api_303()
   },
 
   /**
@@ -71,12 +71,11 @@ Page({
   onShareAppMessage: function () {
 
   },
-  //查看商品详情
-  goProductDetails(event) {
+  //查店铺详情
+  goShop(event) {
     let id = event.currentTarget.dataset.id
-    let sid = event.currentTarget.dataset.sid
     router.goUrl({
-      url: '../../productDetail/productDetail?id=' + id + '&sid=' + sid
+      url: '../../../home/shop/details/details?id=' + id
     })
   },
   /**
@@ -104,7 +103,7 @@ Page({
   api_303: function () {
     var this_ = this;
     wx.post(api.api_303, wx.GetSign({
-      BizType: 0,
+      BizType: 1,
       Size: this_.data.pager.size,
       Index: this_.data.pager.index
     }), function (app, res) {

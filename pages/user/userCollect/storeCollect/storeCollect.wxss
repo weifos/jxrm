@@ -1,7 +1,12 @@
+.container {
+  width: 100%;
+}
+
 .page-collect {
   position: fixed;
   height: 100%;
 }
+
 .content {
   overflow-y: auto;
   overflow-x: hidden;
@@ -12,7 +17,7 @@
 .page-collect .product-list {
   padding: 20rpx;
   font-size: 0;
-  margin-bottom:100rpx;
+  margin-bottom: 100rpx;
 }
 
 .page-collect .product-item {
@@ -35,8 +40,8 @@
 }
 
 .page-collect .product-item image {
-  width: 100%;
-  height: 250rpx;
+  width: 352rpx;
+  height: 352rpx;
 }
 
 .product-item__name {
@@ -47,14 +52,16 @@
   width: 100%;
   text-align: center;
 }
-.nodata{
+
+.nodata {
   text-align: center;
-  font-size:28rpx;
-  color:#cdcdcd;
+  font-size: 28rpx;
+  color: #cdcdcd;
 }
-.nodata image{
+
+.nodata image {
   width: 100rpx;
   height: 100rpx;
-  margin:40% auto 20rpx auto;
-  display: inline-block；
+  margin: 40% auto 20rpx auto;
+  display: inline-block；;
 }

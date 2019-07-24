@@ -58,7 +58,6 @@
   padding: 20rpx;
   font-size: 0;
   box-sizing:border-box;
-
 }
 
 .page-shop .product-item{
