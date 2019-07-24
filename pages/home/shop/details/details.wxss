@@ -48,9 +48,9 @@
 }
 
 .shop-info__desc{
-  font-size:32rpx;
+  font-size:30rpx;
   width: 420rpx;
-  height: 220rpx;
+  height: 210rpx;
   overflow: hidden;
 }
 
