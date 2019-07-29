@@ -98,3 +98,6 @@ swiper{
   line-height: 80rpx;
   background:#ffffff;
 }
+.vat{
+  vertical-align: top;
+}
